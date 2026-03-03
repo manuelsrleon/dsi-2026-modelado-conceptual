@@ -1,3 +1,3 @@
-- [ ] Formulario OM-5
+- [ ] Formulario OM-5 - Daniel Deza
 - [ ] Formulario TM-2
 - [ ] Formulario AM
