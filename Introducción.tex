@@ -1,0 +1,120 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Introducción}
+\author{Daniel Gago}
+\date{January 2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Los primeros SBC}
+    \subsection{Dendral}
+        El primer modelo que usa conocimiento experto.
+
+    \subsection{MYCIN}
+        Este modelo se caractriza por separar el conocimiento de resolución del problema(control) del conocimiento del dominio.\\
+
+        Ademas de esto, este modelo usa un esquema de razonamiento bajo incertidumbre.\\
+
+    \subsection{PROSPECTOR}
+        Este modelo tambien usa un esquema bajo incertidumbre, auqnue diferente al de MYCIN, ademas que tuvo un gran exito comercial.
+
+\section{Características de los Sistemas Inteligentes}
+
+    Los Sistemas Inteligentes (SI) se diferencian de los sistemas informáticos clásicos en que están diseñados para abordar dominios y problemas de mayor complejidad, donde la información puede ser incompleta, imprecisa o cambiante, y no siempre existe una solución determinista claramente definida.
+        
+    \subsection{Dominios y problemas complejos}
+        
+    Los SI se aplican a problemas que superan las capacidades de la informática sistemática tradicional. Estos dominios suelen requerir razonamiento, adaptación y el uso de heurísticas, como ocurre en áreas tales como el diagnóstico, la planificación, los sistemas expertos o la toma de decisiones.
+        
+    \subsubsection{Sistemas procedimentales frente a Sistemas Basados en Conocimiento}
+        
+    Los sistemas informáticos clásicos son sistemáticos y procedimentales: reciben una entrada de datos organizada y producen una salida mediante algoritmos deterministas, de modo que un mismo conjunto de datos de entrada genera siempre el mismo resultado.
+        
+    En contraste, los Sistemas Basados en Conocimiento (SBC) adoptan un enfoque declarativo y heurístico. Estos sistemas se adaptan al estado del problema, pueden modificar sus objetivos durante la ejecución y emplean mecanismos de razonamiento para optimizar su comportamiento.
+        
+    \subsection{Mantenimiento perfectivo continuo}
+        
+    Una característica esencial de los Sistemas Inteligentes es la posibilidad de realizar un mantenimiento perfectivo continuo. Esto implica que el sistema puede evolucionar progresivamente mediante la incorporación de nuevo conocimiento o la mejora de heurísticas, sin necesidad de rediseñar completamente el software.
+        
+    \subsection{Separación entre conocimiento y métodos de resolución}
+        
+    Los SI se basan en la separación entre el conocimiento específico del dominio y los métodos de resolución del problema. Esta separación favorece la reutilización del software, ya que un mismo motor de inferencia puede aplicarse a distintos dominios simplemente cambiando la base de conocimiento.
+        
+    \subsection{Justificación y explicación}
+        
+    Otra característica fundamental es la capacidad de justificación y explicación. Los Sistemas Inteligentes deben ser capaces de explicar las decisiones tomadas y las conclusiones alcanzadas, proporcionando transparencia y aumentando la confianza del usuario en el sistema.
+        
+    \subsection{Conocimiento explícito e implícito}
+        
+    En los Sistemas Inteligentes se distingue entre conocimiento explícito, que se representa directamente mediante hechos, reglas u otras estructuras formales, y conocimiento implícito, que está incorporado en el comportamiento del sistema o en sus algoritmos. Un buen diseño de SI busca maximizar la representación explícita del conocimiento para facilitar su comprensión y mantenimiento.
+
+\section{Ventajas y limitaciones de los Sistemas Basados en Conocimiento}
+
+    Los Sistemas Basados en Conocimiento (SBC) presentan una serie de ventajas que los hacen especialmente adecuados para la resolución de problemas complejos. No obstante, también poseen limitaciones inherentes a su enfoque y a las técnicas empleadas.
+
+    \subsection{Ventajas}
+
+    Entre las principales ventajas de los Sistemas Basados en Conocimiento se encuentran las siguientes:
+
+    \begin{itemize}
+        \item \textbf{Mantenimiento del conocimiento}: el conocimiento se representa de forma explícita, lo que facilita su actualización, corrección y ampliación.
+        \item \textbf{Resolución de problemas complejos}: permiten abordar dominios mal definidos o con gran complejidad mediante razonamiento y heurísticas.
+        \item \textbf{Ajuste de objetivos}: el sistema puede modificar sus objetivos o estrategias durante la ejecución en función del estado del problema.
+        \item \textbf{Tratamiento de la incertidumbre}: incorporan mecanismos para manejar información incompleta o imprecisa, como factores de certeza o razonamiento probabilístico.
+        \item \textbf{Explicación del razonamiento}: son capaces de justificar las decisiones tomadas, aumentando la transparencia y la confianza del usuario.
+        \item \textbf{Reducción de costes}: permiten automatizar tareas que normalmente requerirían expertos humanos, reduciendo costes a largo plazo.
+        \item \textbf{Aumento de la fiabilidad}: ofrecen soluciones consistentes y evitan errores derivados del cansancio o la variabilidad humana.
+        \item \textbf{Modularidad}: la separación entre conocimiento y mecanismos de inferencia favorece el desarrollo modular del sistema.
+    \end{itemize}
+    
+    \subsection{Limitaciones}
+    
+    A pesar de sus ventajas, los SBC presentan también una serie de limitaciones:
+    
+    \begin{itemize}
+        \item \textbf{Dificultad en la adquisición del conocimiento}: extraer y formalizar el conocimiento de expertos humanos es un proceso complejo y costoso.
+        \item \textbf{Reutilización del conocimiento}: el conocimiento suele estar muy ligado a un dominio concreto, lo que dificulta su reutilización directa en otros contextos.
+        \item \textbf{Falta de creatividad y sentido común}: los SBC se limitan al conocimiento previamente representado y no poseen capacidades creativas ni de razonamiento de sentido común.
+        \item \textbf{Obstáculos para el aprendizaje y la adaptación}: muchos SBC tradicionales no aprenden automáticamente y requieren intervención humana para su actualización.
+    \end{itemize}
+
+
+\section{Metodologías}
+    Con todo esto, para ayudar a que los modelos de IC fueran mejores y evitar problemas se empezaron a usar aproximaciones a las metodologías usadas por la IS. Sin embargo estas metodologías de la IS no tenían en cuenta el almacenamiento o obtencion del conocimiento que precisan los modelos de IC. \\
+
+    Con todo esto empiezan a generarse metodologías para aplicarse a la IC, sin embargo estas metodologías son muy precisas y complejas. Ademas de que tras su aplicación podemos decir que antes el problema es el conocimiento, pero ahora el problema es otro, el sentido, pues quien decide lo que es etico o donde esta la linea entre la buena aplicación o mala aplicación de los modelos de esta disciplina.
+
+\section{Separación del conocimiento/representación}
+    Para poder afrontar los problemas con el conocimiento en la IC lo que se hizo fue separar el conocimiento en un nuevo nivel, lo que ayuda a mejorar la comprension y entendimiento que tenemos sobre el. \\
+
+    Tal como decia Newell, con mirar solo el codigo no basta para entender lo que hace,hay que describir qué sabe y qué objetivos persigue, de ahi CommonKADS convierte las ideas de Newell en una metodología. \\
+
+    Estas metodologías son importantes ya que permiten explicar, reutilizar y validar con expertos. \\
+
+\section{MLR}
+    Este metodo se olvida del conocimiento del problema y representa de manera genérica el conocimiento de resolución de problemas. 
+
+\section{Tareas}
+    Tipo de problema o conjunto de instancias de problemas con algo en común\\
+
+    \subsection{Métodos y Subtareas}
+        Medios que nos permiten realizar una tarea.\\
+
+        Método: Conjunto de subtareas que permiten transformar el estado inicial en el estado objetivo de una tarea.
+    \subsection{Estructura de tareas}
+        Árbol de tareas, métodos y subtareas aplicadas recursivamente hasta que las tareas que se alcancen puedan llevarse a cabo mediante el conocimiento disponible.
+    
+
+    
+
+    
+    
+
+    
+    
+        
+
+\end{document}
