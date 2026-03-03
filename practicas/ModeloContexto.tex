@@ -1,0 +1,737 @@
+\documentclass[12pt,a4paper,twoside,spanish]{article}      % Libro a 11 pt
+\usepackage[utf8]{inputenc}
+\usepackage[height=17.5cm,width=13.5cm]{geometry}
+\usepackage[spanish]{babel}         % diccionario
+\usepackage{epsfig}         % Graficos Postscript
+\usepackage{tabularx}
+\usepackage{sectsty}
+\usepackage{float}
+\usepackage{xcolor}
+
+% Margenes 
+\marginparwidth 0pt     \marginparsep 0pt
+\topmargin   0pt        \textwidth   6.5in
+\textheight 23cm
+
+% Margen izq del txt en impares.
+\setlength{\oddsidemargin}{.0001\textwidth}
+
+% Margen izq del txt en pares.
+\setlength{\evensidemargin}{-.04\textwidth}
+
+% Anchura del texto
+\setlength{\textwidth}{.99\textwidth}
+
+
+
+%P rofundidad de enumeracion y tabla de contenidos
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+
+
+% Nuevos Comandos
+
+%Comandos para simplificar la escritura
+
+
+\def\mc{\multicolumn}
+
+% Comandos para poder utilizar raggedright en tablas
+
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\let\PBS=\PreserveBackslash
+
+
+%Cuerpo del documento
+
+
+\begin{document}
+
+    \def\chaptername{Capítulo}
+    \def\tablename{Tabla}
+    \def\listtablename{Índice de Tablas}
+    \chapterfont{\LARGE\raggedleft}
+    
+    % DISEÑO DE LA PAGINA DEL TITULO
+
+    \pagestyle{empty}
+    
+    \begin{titlepage}
+        \setlength{\parindent}{0cm} \setlength{\parskip}{0cm}
+        \newcommand{\HRule}{\rule{\linewidth}{1mm}}
+        
+        \vspace*{2cm}
+        \HRule \\[0.5cm]
+        \begin{center}
+        % Letra lineal y negrita
+        \textsf{\textbf{\large UN SISTEMA BASADO EN CONOCIMIENTO PARA \ldots(LA PLANIFIACIÖN Y ENTRENAMIENTO DEL KARATE)\\[1.5cm]
+        Análisis de viabilidad e impacto. \\[0.25cm] Modelado del Contexto en CommonKADS \\[0.5cm]}}
+        \HRule \vspace*{4cm}
+        
+        \textsf{\textbf{\normalsize Daniel Gago Martínez\\Miembro 2\\Miembro3\\Miembro 4 \\[1cm]
+        Grupo de prácticas: 3.1\\[3.5cm]}}
+        
+        \textsf{\textbf{\small Desarrollo de Sistemas Inteligentes\\
+        Universidade da Coruña \\ Curso 2025/26}}
+        \end{center}
+    \end{titlepage}
+    
+    \cleardoublepage
+    \pagenumbering{Roman}
+    \tableofcontents
+    \cleardoublepage
+    
+    %numeros arábigos
+    \pagenumbering{arabic} 
+    %cabeceras
+    \pagestyle{myheadings} \markboth{Título reducido} {Modelado Contextual en CommonKADS.}
+    
+    %indentaciones y espaciado entre párrafos
+    \setlength{\parindent}{1,5cm} \setlength{\parskip}{0,7cm}
+    
+    \cleardoublepage
+    
+    \section{Análisis de Viabilidad: Modelado de la Organización.}
+        \subsection{Formulario OM-1: contexto organizacional, problemas y soluciones.}
+
+        
+            \begin{table}[H]
+                \scriptsize
+                \begin{tabularx}{\textwidth}{|l|X|} \hline
+                    \textbf{Modelo de Organización} & \textbf{Formulario OM-1: Problemas y Posibilidades de Mejora} \\ \hline\hline
+                    
+                    \textsc{Problemas y Oportunidades} & 
+                        \begin{itemize}
+                            \item El planificar el entrenamiento especifico para varios alumnos a la vez
+                        \end{itemize}\\ \hline
+                    
+                    \textsc{Contexto Organizacional} & Nuestro sistema inteligente sera un producto propio que sera vendido a particulares:
+                     
+                    \begin{enumerate}
+                        \item Planificar entrenamientos de karate para que los alumnos puedan entrenar de manera eficiente.
+                        \item Que un estudiante se lesione y haya que rehacer todo su entrenamiento.
+                        \item Un sensei que supervisa a los alumnos mientras realizan un entrenamiento en base a una planificación.
+                        \item Valores que representan la organización: Los diferentes cinturones 
+                    \end{enumerate}    \\ \hline
+                    
+                    \textsc{Soluciones} & Un sistema inteligente que permita realizar la planificación de varios entrenamientos particulares a a vez  \\ \hline
+                \end{tabularx}
+                  \label{tab.OM1}
+            \end{table}
+            
+            
+            \pagebreak
+            
+        \subsection{Formulario OM-2: descripción del área de interés de la organización.}
+
+            
+
+            \begin{table}[H]
+            \scriptsize
+                \begin{tabularx}{\textwidth}{|l|X|} \hline
+                    \textbf{Modelo de Organización} & \textbf{Formulario OM-2: Aspectos Variables} \\ \hline\hline
+                    
+                    \textsc{Estructura} & 
+                    Dojo de karate compuesto por:
+                    \begin{itemize}
+                        \item Dirección técnica (Sensei)
+                        \item Alumnos
+                    \end{itemize} \\ \hline
+                    
+                    \textsc{Procesos} & 
+                    Proceso principal:
+                    \begin{itemize}
+                        \item Planificación y gestión del entrenamiento
+                    \end{itemize}
+                    
+                    Se descompone en tareas:
+                    \begin{itemize}
+                        \item Evaluación inicial del alumno
+                        \item Definición de objetivos
+                        \item Planificación del entrenamiento
+                        \item Seguimiento del progreso
+                        \item Evaluación de resultados
+                    \end{itemize} \\ \hline
+                    
+                    \textsc{Personal} &  
+                    Miembros implicados:
+                    \begin{itemize}
+                        \item \textbf{Sensei}: responsable técnico y docente
+                        \item \textbf{Alumno}: destinatario del entrenamiento
+                    \end{itemize} \\ \hline
+                    
+                    \textsc{Recursos} &  
+                    Recursos utilizados:
+                    \begin{enumerate}
+                        \item Equipamiento y material: tatami, protecciones, cronómetros
+                        \item Documentación y normativa: reglas y criterios federativos
+                    \end{enumerate} \\ \hline
+                    
+                    \textsc{Conocimiento} &  
+                    \begin{itemize}
+                        \item \textbf{Criterios técnicos por cinturón}: dominio de técnicas y katas
+                        \item \textbf {conocimiento relacion}: entre indicadores fisicos y ejercicios
+                        \item \textbf{Reglas de diagnóstico}: evaluar el estado inicial del alumno
+                        \item \textbf{Principios de planificación}: organización de sesiones y periodización
+                        \item \textbf{Reglamento federativo}: normas y criterios de progresión
+                        \item \textbf{Criterios de evaluación}: medir progreso y ajustar planes
+                    \end{itemize}
+                    (Véase OM-4 para detalle formal). \\ \hline
+                    
+                    \textsc{Cultura y Potencial} &  
+                    El dojo sigue una cultura de disciplina, mejora continua y respeto a la jerarquía.  
+                    Se valoran la experiencia del Sensei y la transmisión directa de conocimientos. 
+                    
+                    Experiencia interpersonal: comunicación y feedback entre Sensei y alumno. \\ \hline
+                    
+                \end{tabularx}
+                \label{tab.OM2}
+            \end{table}
+            
+            
+            
+            \pagebreak
+        \subsection{Formulario OM-3: descomposición del proceso de negocio.}
+    
+        
+        \begin{table}[H]
+            \scriptsize
+            \begin{tabularx}{\textwidth}{|p{0.2cm}|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X|>{\PBS\raggedright}X|} \hline
+            
+                \multicolumn{3}{|l}{\textbf{Modelo de Organización}} & 
+                \multicolumn{4}{|l|}{\textbf{Formulario OM-3: Descomposición de los Procesos}}\\ \hline\hline 
+                
+                \textsc{N\textordmasculine} &
+                \textsc{Tarea} & 
+                \textsc{Realiza\-da por} &  
+                \textsc{¿Dónde?} & 
+                \textsc{Recursos de Conocimiento} & 
+                \textsc{¿In\-ten\-si\-va en Conocimiento?} &
+                \textsc{Im\-por\-tan\-cia} \\ \hline
+                
+                1 & 
+                Evaluación inicial del alumno & 
+                Sensei & 
+                Dojo& 
+                conocimiento relacion entre indicadores fisicos y ejercicios & 
+                Sí & 
+                4 \\ \hline
+                
+            \end{tabularx}
+            \label{tab.OM3-1}
+        \end{table}
+
+        \begin{table}[H]
+
+        
+        \scriptsize
+            \begin{tabularx}{\textwidth}{|p{0.2cm}|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X|>{\PBS\raggedright}X|} \hline
+                \multicolumn{3}{|l}{\textbf{Modelo de Organización}} & 
+                \multicolumn{4}{|l|}{\textbf{Formulario OM-3: Descomposición de los Procesos}}\\ \hline\hline 
+                
+                \textsc{N\textordmasculine} &
+                \textsc{Tarea} & 
+                \textsc{Realiza\-da por} &  
+                \textsc{¿Dónde?} & 
+                \textsc{Recursos de Conocimiento} & 
+                \textsc{¿In\-ten\-si\-va en Conocimiento?} &
+                \textsc{Im\-por\-tan\-cia} \\ \hline
+                
+                2 & 
+                Definición de objetivos de entrenamiento & 
+                Sensei& 
+                Dojo& 
+                Principios de planificación deportiva, progresión técnica, reglamento federativo (véase OM-4) & 
+                Sí & 
+                4 \\ \hline
+                
+            \end{tabularx}
+            \label{tab.OM3-2}
+        \end{table}
+
+        \begin{table}[H]
+        \scriptsize
+            \begin{tabularx}{\textwidth}{|p{0.2cm}|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X|>{\PBS\raggedright}X|} \hline      
+                \multicolumn{3}{|l}{\textbf{Modelo de Organización}} & 
+                \multicolumn{4}{|l|}{\textbf{Formulario OM-3: Descomposición de los Procesos}}\\ \hline\hline 
+                
+                \textsc{N\textordmasculine} &
+                \textsc{Tarea} & 
+                \textsc{Realiza\-da por} &  
+                \textsc{¿Dónde?} & 
+                \textsc{Recursos de Conocimiento} & 
+                \textsc{¿In\-ten\-si\-va en Conocimiento?} &
+                \textsc{Im\-por\-tan\-cia} \\ \hline
+                
+                3 & 
+                Planificación del entrenamiento & 
+                Sensei & 
+                Dojo & 
+                Principios de planificación, reglas de carga-descanso, modelos de periodización,Criterios técnicos por cinturón,Reglamento federativo (véase OM-4) & 
+                Sí & 
+                5 \\ \hline
+            \end{tabularx}
+        \label{tab.OM3-3}
+        \end{table}
+
+        \begin{table}[H]
+        \scriptsize
+            \begin{tabularx}{\textwidth}{|p{0.2cm}|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X|>{\PBS\raggedright}X|} \hline
+                
+                \multicolumn{3}{|l}{\textbf{Modelo de Organización}} & 
+                \multicolumn{4}{|l|}{\textbf{Formulario OM-3: Descomposición de los Procesos}}\\ \hline\hline 
+                
+                \textsc{N\textordmasculine} &
+                \textsc{Tarea} & 
+                \textsc{Realiza\-da por} &  
+                \textsc{¿Dónde?} & 
+                \textsc{Recursos de Conocimiento} & 
+                \textsc{¿In\-ten\-si\-va en Conocimiento?} &
+                \textsc{Im\-por\-tan\-cia} \\ \hline
+                
+                4 & 
+                Seguimiento y monitorización & 
+                Sensei& 
+                Dojo& 
+                Indicadores de rendimiento, umbrales de fatiga, reglas de control (véase OM-4) & 
+                Sí & 
+                4 \\ \hline
+                
+            \end{tabularx}
+        \label{tab.OM3-4}
+        \end{table}
+
+
+        \begin{table}[H]
+        \scriptsize
+            \begin{tabularx}{\textwidth}{|p{0.2cm}|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X|>{\PBS\raggedright}X|} \hline
+            
+                \multicolumn{3}{|l}{\textbf{Modelo de Organización}} & 
+                \multicolumn{4}{|l|}{\textbf{Formulario OM-3: Descomposición de los Procesos}}\\ \hline\hline 
+                
+                \textsc{N\textordmasculine} &
+                \textsc{Tarea} & 
+                \textsc{Realiza\-da por} &  
+                \textsc{¿Dónde?} & 
+                \textsc{Recursos de Conocimiento} & 
+                \textsc{¿In\-ten\-si\-va en Conocimiento?} &
+                \textsc{Im\-por\-tan\-cia} \\ \hline
+                
+                5 & 
+                Evaluación de resultados y reajuste & 
+                Sensei& 
+                Dojo& 
+                Criterios de evaluación comparativa, métricas de progreso, reglas de adaptación (véase OM-4) & 
+                Sí & 
+                3 \\ \hline
+                
+            \end{tabularx}
+        \label{tab.OM3-5}
+        \end{table}
+        
+        
+        \pagebreak
+
+        
+        \subsection{Formulario OM-4: activos de conocimiento.}
+        
+            \begin{table}[H]
+                \scriptsize
+                \begin{tabularx}{\textwidth}{|p{1.3cm}|p{1.3cm}|p{1.3cm}|X|X|X|X|} \hline
+                
+                    \multicolumn{3}{|l}{\textbf{Modelo de Organización}} & 
+                    \multicolumn{4}{|l|}{\textbf{Formulario OM-4: Activos de Conocimiento}} \\ \hline\hline
+                    
+                    \textsc{Recurso de Conocimiento} & \textsc{Pertenece a} &  \textsc{Usado en} &  \textsc{¿Forma Correcta?} & \textsc{¿Lugar Correcto?} & \textsc{¿Tiempo Correcto?} & \textsc{¿Calidad Correcta?} \\ \hline
+                    
+                    Criterios técnicos por cinturón & Sensei & Evaluación inicial, Definición de objetivos, Planificación & Sí & Sí & Sí & Sí \\ \hline
+                    
+                \end{tabularx}
+                \label{tab.OM4-criterios}
+            \end{table}
+
+
+            \begin{table}[H]
+                \scriptsize
+                \begin{tabularx}{\textwidth}{|p{1.3cm}|p{1.3cm}|p{1.3cm}|X|X|X|X|} \hline
+                    \multicolumn{3}{|l}{\textbf{Modelo de Organización}} & 
+                    \multicolumn{4}{|l|}{\textbf{Formulario OM-4: Activos de Conocimiento}} \\ \hline\hline
+                    
+                    \textsc{Recurso de Conocimiento} & \textsc{Pertenece a} &  \textsc{Usado en} &  \textsc{¿Forma Correcta?} & \textsc{¿Lugar Correcto?} & \textsc{¿Tiempo Correcto?} & \textsc{¿Calidad Correcta?} \\ \hline
+                    
+                    Indicadores físicos & Sensei & Evaluación inicial, Seguimiento del progreso & Sí & Sí & Sí & Sí \\ \hline
+                    
+                \end{tabularx}
+                \label{tab.OM4-indicadores}
+            \end{table}
+
+
+            \begin{table}[H]
+                \scriptsize
+                \begin{tabularx}{\textwidth}{|p{1.3cm}|p{1.3cm}|p{1.3cm}|X|X|X|X|} \hline         
+                    \multicolumn{3}{|l}{\textbf{Modelo de Organización}} & 
+                    \multicolumn{4}{|l|}{\textbf{Formulario OM-4: Activos de Conocimiento}} \\ \hline\hline
+                    
+                    \textsc{Recurso de Conocimiento} & \textsc{Pertenece a} &  \textsc{Usado en} &  \textsc{¿Forma Correcta?} & \textsc{¿Lugar Correcto?} & \textsc{¿Tiempo Correcto?} & \textsc{¿Calidad Correcta?} \\ \hline
+                    
+                    Reglas de diagnóstico & Sensei & Evaluación inicial & Sí & Sí & Sí & Sí \\ \hline
+                    
+                \end{tabularx}
+                \label{tab.OM4-reglas}
+            \end{table}
+
+            \begin{table}[H]
+                \scriptsize
+                \begin{tabularx}{\textwidth}{|p{1.3cm}|p{1.3cm}|p{1.3cm}|X|X|X|X|} \hline   
+                    \multicolumn{3}{|l}{\textbf{Modelo de Organización}} & 
+                    \multicolumn{4}{|l|}{\textbf{Formulario OM-4: Activos de Conocimiento}} \\ \hline\hline
+                    
+                    \textsc{Recurso de Conocimiento} & \textsc{Pertenece a} &  \textsc{Usado en} &  \textsc{¿Forma Correcta?} & \textsc{¿Lugar Correcto?} & \textsc{¿Tiempo Correcto?} & \textsc{¿Calidad Correcta?} \\ \hline
+                    
+                    Principios de planificación deportiva & Sensei & Definición de objetivos, Planificación & Sí & Sí & Sí & Sí \\ \hline
+                    
+                \end{tabularx}
+                \label{tab.OM4-principios}
+            \end{table}
+
+
+            \begin{table}[H]
+                \scriptsize
+                \begin{tabularx}{\textwidth}{|p{1.3cm}|p{1.3cm}|p{1.3cm}|X|X|X|X|} \hline                  
+                    \multicolumn{3}{|l}{\textbf{Modelo de Organización}} & 
+                    \multicolumn{4}{|l|}{\textbf{Formulario OM-4: Activos de Conocimiento}} \\ \hline\hline
+                    
+                    \textsc{Recurso de Conocimiento} & \textsc{Pertenece a} &  \textsc{Usado en} &  \textsc{¿Forma Correcta?} & \textsc{¿Lugar Correcto?} & \textsc{¿Tiempo Correcto?} & \textsc{¿Calidad Correcta?} \\ \hline
+                    
+                    Reglamento federativo & Sensei & Definición de objetivos, Evaluación de resultados & Sí & Sí & Sí & Sí \\ \hline
+                    
+                \end{tabularx}
+                \label{tab.OM4-reglamento}
+            \end{table}
+
+
+            \begin{table}[H]
+                \scriptsize
+                \begin{tabularx}{\textwidth}{|p{1.3cm}|p{1.3cm}|p{1.3cm}|X|X|X|X|} \hline
+                    \multicolumn{3}{|l}{\textbf{Modelo de Organización}} & 
+                    \multicolumn{4}{|l|}{\textbf{Formulario OM-4: Activos de Conocimiento}} \\ \hline\hline
+                    
+                    \textsc{Recurso de Conocimiento} & \textsc{Pertenece a} &  \textsc{Usado en} &  \textsc{¿Forma Correcta?} & \textsc{¿Lugar Correcto?} & \textsc{¿Tiempo Correcto?} & \textsc{¿Calidad Correcta?} \\ \hline
+                    
+                    Principios de planificación & Sensei & Planificación & Sí & Sí & Sí & Sí \\ \hline
+                    
+                \end{tabularx}
+                \label{tab.OM4-heuristicas}
+            \end{table}
+
+
+            \begin{table}[H]
+                \scriptsize
+                \begin{tabularx}{\textwidth}{|p{1.3cm}|p{1.3cm}|p{1.3cm}|X|X|X|X|} \hline   
+                    \multicolumn{3}{|l}{\textbf{Modelo de Organización}} & 
+                    \multicolumn{4}{|l|}{\textbf{Formulario OM-4: Activos de Conocimiento}} \\ \hline\hline
+                    
+                    \textsc{Recurso de Conocimiento} & \textsc{Pertenece a} &  \textsc{Usado en} &  \textsc{¿Forma Correcta?} & \textsc{¿Lugar Correcto?} & \textsc{¿Tiempo Correcto?} & \textsc{¿Calidad Correcta?} \\ \hline
+                    
+                    Umbrales de fatiga y rendimiento & Sensei & Seguimiento, Evaluación de resultados & Sí & Sí & Sí & Sí \\ \hline           
+                \end{tabularx}
+                \label{tab.OM4-umbrales}
+            \end{table}
+
+
+
+            \begin{table}[H]
+                \scriptsize
+                \begin{tabularx}{\textwidth}{|p{1.3cm}|p{1.3cm}|p{1.3cm}|X|X|X|X|} \hline           
+                    \multicolumn{3}{|l}{\textbf{Modelo de Organización}} & 
+                    \multicolumn{4}{|l|}{\textbf{Formulario OM-4: Activos de Conocimiento}} \\ \hline\hline
+                    
+                    \textsc{Recurso de Conocimiento} & \textsc{Pertenece a} &  \textsc{Usado en} &  \textsc{¿Forma Correcta?} & \textsc{¿Lugar Correcto?} & \textsc{¿Tiempo Correcto?} & \textsc{¿Calidad Correcta?} \\ \hline
+                    
+                    Criterios de evaluación comparativa & Sensei & Evaluación de resultados & Sí & Sí & Sí & Sí \\ \hline                
+                \end{tabularx}
+                \label{tab.OM4-criterios-eval}
+            \end{table}
+
+            \pagebreak
+            
+        \subsection{Formulario OM-5: Análisis de viabilidad.}
+        
+        \begin{table}[H]
+            \scriptsize
+            \begin{tabularx}{\textwidth}{|l|X|} \hline
+
+                \textbf{Modelo de Organización} & \textbf{Formulario OM-5: Elementos del Documento de Viabilidad}\\ \hline\hline
+                
+                \textsc{Viabilidad Empresarial} & Se deben responder las siguientes preguntas para cada problema y posibilidad e incluir la solución propuesta:
+                
+                \begin{enumerate}
+                    \item¿Cuáles son los beneficios esperados para la organización con la adopción de la solución? Se deben identificar los beneficios tanto económicos como intangibles.
+                    
+                    \item¿Cuánto es el valor añadido esperado?
+                    
+                    \item¿Cuál es el coste esperado de la solución? 
+                    
+                    \item¿Y comparado con otras soluciones alternativas?
+                    
+                    \item¿Se requieren cambios organizacionales?
+                    
+                    \item¿Hasta qué punto están implicados los riesgos e incertidumbres de la empresa en la solución propuesta?
+                \end{enumerate}
+                \\ \hline
+            \end{tabularx}
+            \caption{Formulario OM-5 (parte I).}
+              \label{tab.OM5_1}
+        \end{table}
+        
+        \begin{table}[H]
+            \scriptsize
+            \begin{tabularx}{\textwidth}{|l|X|} \hline
+            
+                \textbf{Modelo de Organización} & \textbf{Formulario OM-5: Elementos del Documento de Viabilidad}\\ \hline\hline
+                
+                \textsc{Viabilidad Técnica} & Se deben responder las siguientes preguntas para cada problema y posibilidad junto
+                a la solución propuesta:
+                
+                \begin{enumerate}
+                    \item ¿Qué complejidad tiene la tarea que desarrollará el SBC desde el punto de vista del conocimiento a almacenar y los procesos de razonamiento a realizar? ¿Son las técnicas y métodos actuales adecuados?
+                    
+                    \item ¿Existen aspectos críticos relativos al tiempo, calidad, recursos necesarios, etc.? ¿Qué se va a hacer al respecto?
+                    
+                    \item ¿Están claros los criterios bajo los cuales vamos a determinar el éxito del proyecto? ¿Cómo vamos a comprobar la calidad y la validez del sistema?
+                    
+                    \item ¿Cómo son de complejas las interfaces con el usuario que se necesitan? ¿Son las técnicas y métodos actuales adecuados?
+                    
+                    \item ¿Cómo es de compleja la interacción con otros sistemas de información y otros recursos potenciales (integración de sistemas, interoperatividad)? ¿Son las técnicas y métodos actuales adecuados?
+                    
+                    \item ¿Existen riesgos e incertidumbres tecnológicos adicionales?
+                \end{enumerate}   \\ \hline
+                
+                
+                \textsc{Viabilidad del Proyecto} & Se deben responder las siguientes preguntas para cada problema y posibilidad junto
+                a la solución propuesta:
+                
+                \begin{enumerate}
+                    \item ¿Existe el compromiso adecuado por parte del personal (gestores, expertos, usuarios, clientes, equipo del proyecto) para llevar a cabo los siguientes pasos del proyecto?
+                    
+                    \item ¿Están disponibles los recursos necesarios (en tiempo, presupuesto, equipamiento, personal)?
+                    
+                    \item ¿Están disponibles el conocimiento y las capacidades requeridas?
+                    
+                    \item ¿Son realistas las expectativas sobre el proyecto y sus resultados?
+                    
+                    \item ¿Es adecuada la organización del proyecto y las comunicaciones externas o internas?
+                    
+                    \item ¿Existen riesgos e incertidumbres adicionales relativos al proyecto?
+                \end{enumerate}
+                
+                \\ \hline
+                \textsc{Acciones Propuestas} & Esta parte del documento de viabilidad está directamente relacionada con los acuerdos de gestión y la toma de decisiones. Valora e integra en un plan de actuación concreto los resultados obtenidos en el análisis previo. Se va completando a lo largo de todo el ciclo de vida del proyecto (en espiral). Para esta primera etapa, tan solo es necesario responder a las preguntas 1 y 2.
+                
+                \begin{enumerate}
+                    \item ¿Qué área de actuación se recomienda entre las áreas de problemas/oportunidades encontradas y descritas en OM-1?
+                    
+                    \item ¿Cuál es la solución recomendada para el área elegida y qué tareas de OM-3 deberían automatizarse?
+                    
+                    \item ¿Cuáles son los resultados, costes y beneficios esperados?
+                    
+                    \item ¿Qué acciones deben de tomar dentro del proyecto para alcanzar dicha solución?
+                    
+                    \item Si las circunstancias que rodean a la organización cambian (tanto externas como internas), ¿en qué condiciones es apropiado reconsiderar las decisiones tomadas?
+                \end{enumerate}
+                \\ \hline
+            \end{tabularx}
+            \caption{Formulario OM-5 (parte II).}
+              \label{tab.OM5_2}
+        \end{table}
+        
+        
+        \pagebreak
+        
+    \section{Análisis de Impactos y Mejoras: Modelado de las Tareas y los Agentes.}
+    
+        \subsection{Formulario TM-1: análisis de tareas.}
+
+
+
+        \begin{table}[H]
+            \scriptsize
+            \begin{tabularx}{\textwidth}{|l|X|} \hline       
+                \textbf{Modelo de Tareas} & \textbf{Formulario TM-1: Análisis de Tareas} \\ \hline\hline
+                
+                \textsc{Tarea} & T3 – Planificación del entrenamiento (Ref. OM-3) \\ \hline
+                
+                \textsc{Organización}  & Proceso central del dojo bajo responsabilidad técnica del Sensei. \\ \hline
+                
+                \textsc{Objetivo y valor} & Diseñar sesiones estructuradas que permitan alcanzar los objetivos definidos. Aporta organización y eficiencia. \\ \hline
+                
+                \textsc{Dependencia y Flujos} 
+                & \textit{1. Tareas precedentes:} T2 – Definición de objetivos.\\
+                & \textit{2. Tareas que le siguen:} T4 – Seguimiento del progreso. \\ \hline
+                
+                \textsc{Objetos manipulados} 
+                & 1. Entrada: objetivos definidos.\\
+                & 2. Salida: plan de entrenamiento estructurado.\\
+                & 3. Internos: heurísticas y principios de planificación (OM-4). \\ \hline
+                
+                \textsc{Tiempo y control} 
+                & 1. Frecuencia: periódica (mensual o por ciclo).\\
+                & 2. Control: determina ejecución de sesiones.\\
+                & 3. Restricciones: equilibrio entre carga y recuperación. \\ \hline
+                
+                \textsc{Agentes} & Sensei. \\ \hline
+                
+                \textsc{Conocimiento y Capacidad} & Uso intensivo de heurísticas y principios deportivos (OM-4). Tarea altamente intensiva en conocimiento. \\ \hline
+                
+                \textsc{Recursos} & Tiempo del Sensei, material del dojo. \\ \hline
+                
+                \textsc{Calidad y eficiencia} & Coherencia del plan y progresión técnica observada. \\ \hline
+            \end{tabularx}
+            \label{tab.TM1-T3}
+        \end{table}
+
+        
+        
+        \pagebreak
+        
+    \subsection{Formulario TM-2: análisis de los cuellos de botella del conocimiento.}
+    
+        \begin{table}[H]
+            \scriptsize
+            \begin{tabularx}{\textwidth}{|p{5cm}|>{\PBS\raggedright}p{0.8cm}|X|} \hline
+                \textbf{Modelo de Tareas} & \multicolumn{2}{l|}{\textbf{Formulario TM-2: Elemento de Co\-no\-ci\-mien\-to}} \\ \hline\hline
+                
+                \textsc{Nombre} &  \multicolumn{2}{l|}{Elemento de conocimiento \emph{(Referencia a OM-3)}}\\ \hline
+                
+                \textsc{Poseído por} &  \multicolumn{2}{X|}{Agente \emph{(Referencia a OM-4)}}\\ \hline
+                
+                \textsc{Usado en} &  \multicolumn{2}{l|}{Nombre de la tarea e identificador \emph{(Referencia a OM-3)}}\\ \hline
+                
+                \textsc{Dominio} &  \multicolumn{2}{p{7.5cm}|}{Dominio más amplio en el que se encuentra el conocimiento (campo de la especialidad,
+                disciplina, rama de la ciencia o ingeniería, etc.).}\\ \hline
+                
+                \textbf{Naturaleza del conocimiento} & \emph{(Sí/No)} &
+                \textbf{¿Supone un cuello de botella?¿Debe ser mejorado?}\\ \hline 
+                
+                Formal, riguroso & & \\ \hline 
+                
+                Empírico, cuantitativo& & \\ \hline
+                
+                Heurístico, sentido común& & \\ \hline
+                
+                Altamente especializado, específico del dominio& & \\ \hline 
+                
+                Basado en la experiencia& & \\ \hline 
+                
+                Basado en la acción$^1$& & \\ \hline
+                
+                Incompleto& & \\\hline 
+                
+                Incierto, puede ser incorrecto & & \\ \hline 
+                
+                Cambia con rapidez& & \\ \hline 
+                
+                Difícil de verificar& & \\ \hline 
+                
+                Tácito, difícil de transferir& & \\ \hline 
+                
+                \textbf{Forma del conocimiento} & &\\ \hline
+                
+                Mental& & \\ \hline
+                
+                Papel& & \\ \hline 
+                
+                Electrónica& & \\ \hline
+                
+                Habilidades& & \\ \hline 
+                
+                Otros& & \\ \hline 
+                
+                \textbf{Disponibilidad del Conocimiento} &  &\\ \hline 
+                
+                Limitaciones en tiempo& & \\ \hline
+                
+                Limitaciones en espacio& & \\ \hline 
+                
+                Limitaciones de acceso& & \\ \hline Limitaciones de calidad& & 
+                
+                \\ \hline Limitaciones de forma& & \\ \hline
+                
+            \end{tabularx}
+              \label{tab.TM2}
+        \end{table}
+        
+        {\scriptsize \noindent $^1$ Se refiere a conocimiento que se
+        adquiere con la repetición de actividades físicas tales como
+        conducir, encestar, etc.}
+        
+        \pagebreak
+        
+    \subsection{Formulario AM-1: descripción de los agentes.}
+        
+        \begin{table}[H]
+            \scriptsize
+            \begin{tabularx}{\textwidth}{|l|X|} \hline
+                \textbf{Modelo de Agentes} & \textbf{Formulario AM-1: Agentes} \\ \hline\hline
+                
+                \textsc{Nombre} &  Nombre del agente \\ \hline
+                
+                \textsc{Organización} &  Indica la posición del agente dentro de la organización, incluyendo su tipo (humano, sistema de información), etc. \emph{(referencia a OM-2)}\\ \hline
+                
+                \textsc{Implicado en} & Tareas en las que está implicado \emph{(referencia a TM-1)} \\ \hline
+                
+                \textsc{Se comunica con} &  Lista de nombres de otros agentes  \\ \hline
+                
+                \textsc{Conocimiento} &  Elementos de conocimiento que el agente posee \emph{(referencia a TM-2)} \\ \hline
+                
+                \textsc{Otras Competencias} &  Lista del resto de las competencias requeridas o presentes en el agente \\ \hline
+                
+                \textsc{Responsabilidades y restricciones} &  Responsabilidades que el agente tiene durante la ejecución de las tareas, así como de sus restricciones en autoridad, respecto a normas legales o profesionales, etc.\\ \hline
+            \end{tabularx}
+             \label{tab.AM1}
+        \end{table}
+        
+        
+        \pagebreak
+        
+    \section{Conclusiones del análisis de viabilidad e impacto.}
+    
+        \subsection{Formulario OTA-1: recomendaciones y acciones.}
+               
+            \vspace*{1cm}
+                    
+            \begin{table}[H]
+                \scriptsize
+                \begin{tabularx}{\textwidth}{|p{4cm}|X|} \hline
+                    \textbf{Modelos de Organización, Tareas y Agentes} & \textbf{Formulario OTA-1: Documento sobre Impactos y Mejoras}\\ \hline\hline 
+                    
+                    \textsc{Impactos y Cambios en la Organización} & Describir los impactos y los cambios que el SBC traerá a la organización, comparándola con la estructura organizativa actual \emph{(descrita en OM-2)}, y con cómo será dicha organización en el futuro. Esta descripción se realizará de forma global para los seis aspectos variables descritos en OM-2. \\ \hline
+                    
+                    \textsc{Impactos y Cambios en Tareas y Agentes} & Describir los impactos y los cambios que el SBC introducirá en los agentes y las tareas, comparándolos con la situación actual \emph{(descrita en TM-1/2 y AM-1)}. Es importante que no sólo se considere al personal implicado en una determinada tarea, sino también a otros agentes y poseedores de conocimiento (gestores, usuarios, clientes): \\
+                    
+                    & 1. Cambios en la estructura de las tareas (flujo, dependencias, objetos manipulados, temporización, control). \\
+                    & 2. Cambios en los recursos necesarios. \\
+                    & 3. Criterios para evaluar la calidad y el rendimiento.\\
+                    & 4. Cambios en la plantilla y en los agentes implicados.\\
+                    & 5. Cambios en las posiciones, responsabilidades, autoridad y limitaciones de los
+                    individuos implicados en la ejecución de la tarea.\\
+                    & 6. Cambios en el conocimiento y capacidad requeridos.\\
+                    & 7. Cambios en los canales de comunicación.\\ \hline
+                    
+                    \textsc{Actitudes y Compromisos} &  Analizar cómo reaccionarán a los cambios introducidos los individuos y el personal cualificado
+                    involucrado, y decidir si existe la base suficiente para llevar a cabo dichos cambios. \\ \hline
+                    
+                    \textsc{Acciones Propuestas} &  Apartado directamente relacionado con los acuerdos de gestión y la toma de decisiones. Los resultados obtenidos con el análisis previo se valoran e integran en un plan de actuación concreto: \\
+                    
+                    & \textit{1. Mejoras:} ¿Cuáles son los cambios recomendados (organización, tareas, personal, sistemas\ldots)?\\
+                    & \textit{2. Medidas adicionales:} ¿Qué medidas hay que tomar para facilitar dichos cambios? (formación, facilidades\ldots)\\
+                    & \textit{3. Acciones del proyecto:} ¿Cuál es la siguiente acción a realizar dentro del proyecto respecto a la solución basada en el conocimiento asumida?\\
+                    & \textit{4. Resultados, costes y beneficios esperados} \emph{(referencia a OM-5)}.\\
+                    & 5. Si las circunstancias que rodean a la organización cambian (tanto externas como internas), ¿en qué condiciones es apropiado reconsiderar las decisiones tomadas? \\ \hline
+                \end{tabularx}
+                  \label{tab.OTA1}
+            \end{table}
+            
+        
+\end{document}
