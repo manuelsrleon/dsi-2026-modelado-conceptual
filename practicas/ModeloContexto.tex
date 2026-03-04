@@ -135,7 +135,7 @@
                     \textsc{Estructura} & 
                     Dojo de karate compuesto por:
                     \begin{itemize}
-                        \item Dirección técnica (Sensei)
+                        \item Dirección técnica, (Sensei)
                         \item Alumnos
                     \end{itemize} \\ \hline
                     
@@ -670,24 +670,83 @@
         
     \subsection{Formulario AM-1: descripción de los agentes.}
         
+
+        % =================== AGENTE 1: SENSEI ===================
+
         \begin{table}[H]
             \scriptsize
             \begin{tabularx}{\textwidth}{|l|X|} \hline
                 \textbf{Modelo de Agentes} & \textbf{Formulario AM-1: Agentes} \\ \hline\hline
                 
-                \textsc{Nombre} &  Nombre del agente \\ \hline
+                \textsc{Nombre} &  Sensei \\ \hline
                 
-                \textsc{Organización} &  Indica la posición del agente dentro de la organización, incluyendo su tipo (humano, sistema de información), etc. \emph{(referencia a OM-2)}\\ \hline
+                \textsc{Organización} &  Dirección técnica, humano \emph{(referencia a OM-2)}\\ \hline
                 
-                \textsc{Implicado en} & Tareas en las que está implicado \emph{(referencia a TM-1)} \\ \hline
+                \textsc{Implicado en} & T2, definición de objetivos; T3, planificación de entrenamiento; T4, seguimiento del progreso \emph{(referencia a TM-1)} \\ \hline
                 
-                \textsc{Se comunica con} &  Lista de nombres de otros agentes  \\ \hline
+                \textsc{Se comunica con} &  Alumnos, Sistema inteligente  \\ \hline
                 
                 \textsc{Conocimiento} &  Elementos de conocimiento que el agente posee \emph{(referencia a TM-2)} \\ \hline
                 
-                \textsc{Otras Competencias} &  Lista del resto de las competencias requeridas o presentes en el agente \\ \hline
+                \textsc{Otras Competencias} &  Experiencia técnica, liderazgo \\ \hline
                 
-                \textsc{Responsabilidades y restricciones} &  Responsabilidades que el agente tiene durante la ejecución de las tareas, así como de sus restricciones en autoridad, respecto a normas legales o profesionales, etc.\\ \hline
+                \textsc{Responsabilidades y restricciones} &  Supervisar la correcta progresión de los alumnos, respetar las normas del dojo, garantizar la seguridad de los alumnos\\ \hline
+            \end{tabularx}
+             \label{tab.AM1}
+        \end{table}
+        
+
+        \pagebreak
+
+
+        % =================== AGENTE 2: ALUMNO ===================
+
+        \begin{table}[H]
+            \scriptsize
+            \begin{tabularx}{\textwidth}{|l|X|} \hline
+                \textbf{Modelo de Agentes} & \textbf{Formulario AM-1: Agentes} \\ \hline\hline
+                
+                \textsc{Nombre} &  Alumno \\ \hline
+                
+                \textsc{Organización} &  Miembro del dojo, humano \emph{(referencia a OM-2)}\\ \hline
+                
+                \textsc{Implicado en} & Ejecutar el plan de entrenamiento, registrar el progreso (relacionado con T3 y T4) \emph{(referencia a TM-1)} \\ \hline
+                
+                \textsc{Se comunica con} &  Sensei, alumnos  \\ \hline
+                
+                \textsc{Conocimiento} &  Elementos de conocimiento que el agente posee \emph{(referencia a TM-2)} \\ \hline
+                
+                \textsc{Otras Competencias} &  Autogestión, capacidad de aprendizaje, disciplina \\ \hline
+                
+                \textsc{Responsabilidades y restricciones} &  Seguir las indicaciones del sensei, cumplir el plan, informar de lesiones\\ \hline
+            \end{tabularx}
+             \label{tab.AM1}
+        \end{table}
+        
+        
+        \pagebreak
+
+
+        % =================== AGENTE 3: SISTEMA DE PLANIFICACIÓN DE ENTRENAMIENTO ===================
+
+        \begin{table}[H]
+            \scriptsize
+            \begin{tabularx}{\textwidth}{|l|X|} \hline
+                \textbf{Modelo de Agentes} & \textbf{Formulario AM-1: Agentes} \\ \hline\hline
+                
+                \textsc{Nombre} &  Sistema de planificaciónde entrenamiento \\ \hline
+                
+                \textsc{Organización} &  Departamento de planificación, sistema inteligente \emph{(referencia a OM-2)}\\ \hline
+                
+                \textsc{Implicado en} & T3, planificación de entrenamiento \emph{(referencia a TM-1)} \\ \hline
+                
+                \textsc{Se comunica con} &  Sensei, alumnos  \\ \hline
+                
+                \textsc{Conocimiento} &  Elementos de conocimiento que el agente posee \emph{(referencia a TM-2)} \\ \hline
+                
+                \textsc{Otras Competencias} &  Recordatorios, reportes de progreso \\ \hline
+                
+                \textsc{Responsabilidades y restricciones} &  Garantizar planes adecuados al nivel del alumno, respetar limitaciones del alumno\\ \hline
             \end{tabularx}
              \label{tab.AM1}
         \end{table}
