@@ -457,96 +457,117 @@
             \pagebreak
             
         \subsection{Formulario OM-5: Análisis de viabilidad.}
-        
-        \begin{table}[H]
-            \scriptsize
-            \begin{tabularx}{\textwidth}{|l|X|} \hline
+     %           \item¿Cuáles son los beneficios esperados para la organización con la adopción de la solución? Se deben identificar los beneficios tanto económicos como intangibles.
+     %               \item¿Cuánto es el valor añadido esperado?%% fuente https://radviser.com/salary/instructor/spain.
+     %               \item¿Cuál es el coste esperado de la solución? %% https://calcutechsalary.org/blog/cuanto-cobrar-programador-freelance-espana-2025.
+     %               \item¿Y comparado con otras soluciones alternativas?
+     %               \item¿Se requieren cambios organizacionales?
+     %               \item¿Hasta qué punto están implicados los riesgos e incertidumbres de la empresa en la solución propuesta?
+        \paragraph{Análisis de la viabilidad empresarial}
+        Teniendo en cuenta de que este SBC reduce en una proporción importante la cantidad de tiempo para planear las lecciones, las cuales son una
+        mayor parte del trabajo, podríamos concluir que su uso sería viable, siendo una importante ayuda a la productividad según
+        aumenta la cantidad de trabajo, o de instructores. \\
+        Ya que que el sueldo promedio de un instructor de deportes en España se sitúa
+        entre $10000$ a $30000$ euros anuales, de los cuales asumiremos un pago de $20000$ y
+        asumiendo que se tardará una semana en realizar los planes (con un instructor), la empresa podría ahorrarse $384$ euros de costes trimestrales.
+        \\ 
+        Ahora, además de los costes que ahorramos en las operaciones de la empresa debemos tener en cuenta los costes. Como este es un proyecto de sencillez
+        considerable, necesitaremos un personal mínimo: Un senior, un junior y un ingeniero de conocimientos serán necesarios.
+        \\ Nuestro proyecto durará tres semanas de principio a fin.
+        Ya que los sueldos del personal son, respectivamente, 40, 90 y 40 euros la hora y el proyecto dura 120 horas, el coste total será de $19200$ euros. \\
+        Este elevado coste presenta la opción de soluciones alternativas como contratar a más instructores. Esto sería incorrecto ya que aumentaría los
+        costes a largo plazo (con contratar un solo instructor tendríamos que pagar lo mismo que todo el proyecto). \\
+        Tratando los efectos de nuestro sistema dentro del propio dojo, no debería haber muchos cambios a parte del uso de un ordenador para nuestro sistema
+        inteligente. Ya que es muy sencillo, podría ejecutarse dentro de un ordenador cualquiera. \\ El sistema presenta, eso si, ciertos riesgos:
+        las preferencias personales de cada miembro del dojo puede que no se cumplan pues el sistema intentará siempre construir
+        los horarios de la forma más eficiente posible. 
+       \paragraph{Análisis de viabilidad técnica} 
+       Ya que nuestro proyecto está orientado hacia una tarea tediosa pero mecánicamente simple, disfrutará de una baja complejidad. Esto invita a cuestionar
+       la necesidad de un SBC, pero es lo correcto ya que un sistema basado en conocimiento nos permite realizar estas tareas de forma casi completamente autónoma
+       en un muy pequeño espacio de tiempo, incluyendo comparado con otras medidas, las cuales aún necesitan cierto nivel de gestión manual.
+       (por ejemplo, aplicaciones que nos permitan ver que momentos tiene la gente disponible).\\
+       Continuando sobre esta línea de pensamiento, se puede llegar a cuestionar las necesidades físicas del sistema, es decir, los equipos informáticos. Debido a la sencillez
+       de tanto los datos disponibles (horarios de ejericicios y horarios de disponibilidad) y del problema, el encontrar intersecciones, no necesitaremos de equipos nuevos
+       específicos para la tarea. Simplemente dedicar un ordenador ya presente para la ejecución del SBC en lugar de software de planeamiento será suficiente.\\
+       En cierto momento será necesario determinar el correcto funcionamiento de nuestro sistema, en cuyo caso, para comprobar la calidad deberíamos medirla por dos métricas:
+       \begin{itemize}
+       \item La satisfacción de los clientes del dojo con su horario asignado, pues a parte de conseguir el mejor horario viable, los clientes del dojo deben de estar
+         satisfechos con su horario asignado.
+       \item La viabilidad de los horarios, pues el sistema debe construir unicamente aquellos horarios donde puedan participar la máxima cantidad de personas
+       \end{itemize} 
+       Tratando los métodos de adquisición de información del sistema, este podría disponer de diferentes métodos, entre los cuales se incluyen archivos tipo CSV o una
+       interfaz de usuario similar a una hoja de cálculo la cual permita introducir los horarios manualmente. Alternativamente, podríamos integrar nuestro sistema con otros
+       ya existentes: si se dispone de una base de datos, el SBC podría obtener los datos directamente de ella.\\
+       %% lo siento por que esta ultima pregunta parece que se ciña un poco a lo de pregunta y respuesta pero es q el cambio tonal con respecto a apartados anteriores no deja mucho sitio
+       Es posible que nuestro sistema enfrente consideraciones técnicas no previstas: Podremos tener problemas con los costes de hardware si ampliamos el sistema a varios dojos.
+       La sencillez de nuestro sistema representa, además, una espada de doble filo: es posible que competidores mucho mas grandes creen sistemas similares al nuestro, o incluso sistemas mejor integrados donde un sistema similar al nuestro sea un componente.
+       \paragraph{Viabilidad del Proyecto}
 
-                \textbf{Modelo de Organización} & \textbf{Formulario OM-5: Elementos del Documento de Viabilidad}\\ \hline\hline
-                
-                \textsc{Viabilidad Empresarial} & Se deben responder las siguientes preguntas para cada problema y posibilidad e incluir la solución propuesta:
-                
-                \begin{enumerate}
-                    \item¿Cuáles son los beneficios esperados para la organización con la adopción de la solución? Se deben identificar los beneficios tanto económicos como intangibles.
-                    
-                    \item¿Cuánto es el valor añadido esperado?
-                    
-                    \item¿Cuál es el coste esperado de la solución? 
-                    
-                    \item¿Y comparado con otras soluciones alternativas?
-                    
-                    \item¿Se requieren cambios organizacionales?
-                    
-                    \item¿Hasta qué punto están implicados los riesgos e incertidumbres de la empresa en la solución propuesta?
-                \end{enumerate}
-                \\ \hline
-            \end{tabularx}
-            \caption{Formulario OM-5 (parte I).}
-              \label{tab.OM5_1}
-        \end{table}
-        
-        \begin{table}[H]
-            \scriptsize
-            \begin{tabularx}{\textwidth}{|l|X|} \hline
-            
-                \textbf{Modelo de Organización} & \textbf{Formulario OM-5: Elementos del Documento de Viabilidad}\\ \hline\hline
-                
-                \textsc{Viabilidad Técnica} & Se deben responder las siguientes preguntas para cada problema y posibilidad junto
-                a la solución propuesta:
-                
-                \begin{enumerate}
-                    \item ¿Qué complejidad tiene la tarea que desarrollará el SBC desde el punto de vista del conocimiento a almacenar y los procesos de razonamiento a realizar? ¿Son las técnicas y métodos actuales adecuados?
-                    
-                    \item ¿Existen aspectos críticos relativos al tiempo, calidad, recursos necesarios, etc.? ¿Qué se va a hacer al respecto?
-                    
-                    \item ¿Están claros los criterios bajo los cuales vamos a determinar el éxito del proyecto? ¿Cómo vamos a comprobar la calidad y la validez del sistema?
-                    
-                    \item ¿Cómo son de complejas las interfaces con el usuario que se necesitan? ¿Son las técnicas y métodos actuales adecuados?
-                    
-                    \item ¿Cómo es de compleja la interacción con otros sistemas de información y otros recursos potenciales (integración de sistemas, interoperatividad)? ¿Son las técnicas y métodos actuales adecuados?
-                    
-                    \item ¿Existen riesgos e incertidumbres tecnológicos adicionales?
-                \end{enumerate}   \\ \hline
-                
-                
-                \textsc{Viabilidad del Proyecto} & Se deben responder las siguientes preguntas para cada problema y posibilidad junto
-                a la solución propuesta:
-                
-                \begin{enumerate}
-                    \item ¿Existe el compromiso adecuado por parte del personal (gestores, expertos, usuarios, clientes, equipo del proyecto) para llevar a cabo los siguientes pasos del proyecto?
-                    
-                    \item ¿Están disponibles los recursos necesarios (en tiempo, presupuesto, equipamiento, personal)?
-                    
-                    \item ¿Están disponibles el conocimiento y las capacidades requeridas?
-                    
-                    \item ¿Son realistas las expectativas sobre el proyecto y sus resultados?
-                    
-                    \item ¿Es adecuada la organización del proyecto y las comunicaciones externas o internas?
-                    
-                    \item ¿Existen riesgos e incertidumbres adicionales relativos al proyecto?
-                \end{enumerate}
-                
-                \\ \hline
-                \textsc{Acciones Propuestas} & Esta parte del documento de viabilidad está directamente relacionada con los acuerdos de gestión y la toma de decisiones. Valora e integra en un plan de actuación concreto los resultados obtenidos en el análisis previo. Se va completando a lo largo de todo el ciclo de vida del proyecto (en espiral). Para esta primera etapa, tan solo es necesario responder a las preguntas 1 y 2.
-                
-                \begin{enumerate}
-                    \item ¿Qué área de actuación se recomienda entre las áreas de problemas/oportunidades encontradas y descritas en OM-1?
-                    
-                    \item ¿Cuál es la solución recomendada para el área elegida y qué tareas de OM-3 deberían automatizarse?
-                    
-                    \item ¿Cuáles son los resultados, costes y beneficios esperados?
-                    
-                    \item ¿Qué acciones deben de tomar dentro del proyecto para alcanzar dicha solución?
-                    
-                    \item Si las circunstancias que rodean a la organización cambian (tanto externas como internas), ¿en qué condiciones es apropiado reconsiderar las decisiones tomadas?
-                \end{enumerate}
-                \\ \hline
-            \end{tabularx}
-            \caption{Formulario OM-5 (parte II).}
-              \label{tab.OM5_2}
-        \end{table}
-        
-        
+
+       La viabilidad del proyecto es prometedora, aunque con ciertos aspectos que requieren 
+       atención y seguimiento. Existe un compromiso razonable por parte del personal implicado: 
+       el Sensei y los alumnos están interesados en mejorar la planificación de los entrenamientos, 
+       y el equipo de desarrollo cuenta con la motivación necesaria. Sin embargo, puede ser necesario 
+       reforzar la coordinación y definir claramente las responsabilidades para 
+       garantizar que todos los participantes mantengan un compromiso constante durante el proyecto.
+       \\
+       
+       Los recursos requeridos para el proyecto están disponibles de manera mayormente razonable. El 
+       tiempo estimado para cada etapa se ajusta a la capacidad del equipo, y el presupuesto previsto 
+       cubre tanto la remuneración del personal como la adquisición de sistemas y herramientas necesarias 
+       para el desarrollo y la prueba del sistema. Además, los materiales y equipamiento del dojo, como 
+       tatamis, protecciones y cronómetros pueden integrarse en el proceso de pruebas sin necesidad de 
+       inversiones adicionales significativas.
+       \\
+       
+       El conocimiento y las capacidades necesarias están presentes en el equipo, pero distribuido entre 
+       los diversos perfiles. Mientras que el Sensei aporta experiencia técnica y deportiva, el ingeniero 
+       de conocimiento domina la formalización de la información.
+       \\
+       
+       Las expectativas sobre los resultados del proyecto son realistas. Se espera que el sistema mejore 
+       la eficiencia de la planificación, reduzca la carga de trabajo del sensei y permita un seguimiento 
+       más preciso del progreso de los alumnos. Aunque no todas las tareas pueden automatizarse completamente, 
+       el enfoque propuesto permitirá un ahorro significativo en las tareas repetitivas e intensivas en 
+       conocimiento, aumentando la calidad general del entrenamiento.
+       \\
+       
+       La organización del proyecto es adecuada, aunque el mayor enfoque recae en la comunicación externa, 
+       especialmente entre el sensei y los alumnos. Es responsabilidad del sensei asegurarse de que los planes 
+       y las instrucciones se transmitan de manera clara y comprensible, mientras que los alumnos deben expresar 
+       eficazmente sus necesidades, preocupaciones y feedback. La efectividad de esta comunicación es clave para 
+       que el sistema sea utilizado correctamente y para garantizar que los ajustes en los entrenamientos se basen 
+       en información precisa y realista.
+       \\
+       Hay varios riesgos e incertidumbres en el proyecto. Por ejemplo, los alumnos o el sensei podrían no estar 
+       totalmente satisfechos con los planes que genere el sistema, ya sea porque les parezcan demasiado duros, 
+       repetitivos o no adecuados a sus necesidades. También existe la posibilidad de que el sistema cometa errores 
+       al organizar los entrenamientos, sobre todo si los datos iniciales de los alumnos no son completos o precisos. 
+       Finalmente, tanto el sensei como los alumnos necesitarán adaptarse al nuevo sistema, y seguramente al principio 
+       surjan confusiones o ajustes que frenen un poco la eficiencia temprana del proyecto.
+
+       \paragraph{Acciones Propuestas}
+
+
+       Esta parte del documento de viabilidad está directamente relacionada con los acuerdos
+       de gestión y la toma de decisiones. Valora e integra en un plan de actuación concreto los
+       resultados obtenidos en el análisis previo. Se va completando a lo largo de todo el ciclo de
+       vida del proyecto (en espiral). Para esta primera etapa, tan solo es necesario responder a
+       dos cuestiones: que sobre que área problema actuamos y que solucion escogemos, y de esta, que tareas automatizamos.\\
+       
+       Tras analizar los procesos y problemas identificados en la organización, se concluido como área de actuación es optimización de la planificación 
+       de entrenamientos individuales y grupales en un dojo de karate. Actualmente, generar planes específicos para varios alumnos a la vez representa un 
+       desafío y es demasiado costoso en tiempo y recursos, ya que es necesario garantizar que se respeten los niveles, los objetivos personales y los 
+       criterios de seguridad de cada alumno. Mejorar esta área permitirá al Sensei gestionar de manera más eficiente las sesiones de entrenamiento y 
+       ofrecer un mejor seguimiento de la progresión de cada estudiante.\\
+       
+       La solución propuesta consiste en desarrollar un sistema inteligente de planificación de entrenamientos que apoye al Sensei en la generación de 
+       planes personalizados y colectivos. El sistema tomará en cuenta los objetivos de cada alumno, su nivel de cinturón y la normativa de la federación, 
+       proporcionando planes ajustados a las necesidades individuales. Las tareas que más se beneficiarán de la automatización incluyen la planificación 
+       del entrenamiento (OM-3, tarea 3), donde el sistema podrá generar sesiones detalladas según criterios de nivel, carga y disponibilidad; el 
+       seguimiento y monitorización (OM-3, tarea 4), permitiendo registrar indicadores de rendimiento; y la evaluación de resultados y reajuste 
+       (OM-3, tarea 5), donde se podrán sugerir ajustes en los planes de manera automática según los progresos del alumno. Por el contrario, tareas como 
+       la evaluación inicial del alumno y la definición de objetivos (OM-3, tareas 1 y 2) seguirán siendo principalmente responsabilidad del Sensei.\\
         \pagebreak
         
     \section{Análisis de Impactos y Mejoras: Modelado de las Tareas y los Agentes.}
