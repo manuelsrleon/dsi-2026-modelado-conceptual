@@ -109,10 +109,10 @@
                     \textsc{Contexto Organizacional} & Nuestro sistema inteligente sera un producto propio que sera vendido a particulares:
                      
                     \begin{enumerate}
-                        \item Planificar entrenamientos de karate para que los alumnos puedan entrenar de manera eficiente.
-                        \item Que un estudiante se lesione y haya que rehacer todo su entrenamiento.
-                        \item Un sensei que supervisa a los alumnos mientras realizan un entrenamiento en base a una planificación.
-                        \item Valores que representan la organización: Los diferentes cinturones 
+                        \item \textbf{Problema:} La gran cantidad de informacion que hay que tener en cuenta por alumno y la cantidad de alumnos que hay a la hoar de hacer una planificación.
+                        \item \textbf{Imprevistos que pueden suceder:} Que un estudiante se lesione y haya que rehacer todo su entrenamiento.
+                        \item \textbf{Estrategia de la organización:}Un sensei que supervisa a los alumnos mientras realizan un entrenamiento en base a una planificación.
+                        \item \textbf{Valores que representan la organización:} Los diferentes cinturones 
                     \end{enumerate}    \\ \hline
                     
                     \textsc{Soluciones} & Un sistema inteligente que permita realizar la planificación de varios entrenamientos particulares a a vez  \\ \hline
@@ -268,7 +268,7 @@
                 Planificación del entrenamiento & 
                 Sensei & 
                 Dojo & 
-                Principios de planificación, reglas de carga-descanso, modelos de periodización,Criterios técnicos por cinturón,Reglamento federativo (véase OM-4) & 
+                Principios de planificación, reglas de carga-descanso,Criterios técnicos por cinturón y Reglamento federativo (véase OM-4) & 
                 Sí & 
                 5 \\ \hline
             \end{tabularx}
@@ -603,7 +603,7 @@
                 
                 \textsc{Agentes} & Sensei. \\ \hline
                 
-                \textsc{Conocimiento y Capacidad} & Uso intensivo de heurísticas y principios deportivos (OM-4). Tarea altamente intensiva en conocimiento. \\ \hline
+                \textsc{Conocimiento y Capacidad} & Principios de planificación, reglas de carga-descanso,Criterios técnicos por cinturón y Reglamento federativo \\ \hline
                 
                 \textsc{Recursos} & Tiempo del Sensei, material del dojo. \\ \hline
                 
@@ -623,7 +623,7 @@
             \begin{tabularx}{\textwidth}{|p{5cm}|>{\PBS\raggedright}p{0.8cm}|X|} \hline
                 \textbf{Modelo de Tareas} & \multicolumn{2}{l|}{\textbf{Formulario TM-2: Elemento de Co\-no\-ci\-mien\-to}} \\ \hline\hline
                 
-                \textsc{Nombre} &  \multicolumn{2}{l|}{Elemento de conocimiento \emph{(Referencia a OM-3)}}\\ \hline
+                \textsc{Nombre} &  \multicolumn{2}{l|}{Principios de planificación}\\ \hline
                 
                 \textsc{Poseído por} &  \multicolumn{2}{X|}{Agente \emph{(Referencia a OM-4)}}\\ \hline
                 
@@ -682,6 +682,210 @@
             \end{tabularx}
               \label{tab.TM2}
         \end{table}
+
+
+               \begin{table}[H]
+            \scriptsize
+            \begin{tabularx}{\textwidth}{|p{5cm}|>{\PBS\raggedright}p{0.8cm}|X|} \hline
+                \textbf{Modelo de Tareas} & \multicolumn{2}{l|}{\textbf{Formulario TM-2: Elemento de Co\-no\-ci\-mien\-to}} \\ \hline\hline
+                
+                \textsc{Nombre} &  \multicolumn{2}{l|}{reglas de carga-descanso}\\ \hline
+                
+                \textsc{Poseído por} &  \multicolumn{2}{X|}{Agente \emph{(Referencia a OM-4)}}\\ \hline
+                
+                \textsc{Usado en} &  \multicolumn{2}{l|}{Nombre de la tarea e identificador \emph{(Referencia a OM-3)}}\\ \hline
+                
+                \textsc{Dominio} &  \multicolumn{2}{p{7.5cm}|}{Dominio más amplio en el que se encuentra el conocimiento (campo de la especialidad,
+                disciplina, rama de la ciencia o ingeniería, etc.).}\\ \hline
+                
+                \textbf{Naturaleza del conocimiento} & \emph{(Sí/No)} &
+                \textbf{¿Supone un cuello de botella?¿Debe ser mejorado?}\\ \hline 
+                
+                Formal, riguroso & & \\ \hline 
+                
+                Empírico, cuantitativo& & \\ \hline
+                
+                Heurístico, sentido común& & \\ \hline
+                
+                Altamente especializado, específico del dominio& & \\ \hline 
+                
+                Basado en la experiencia& & \\ \hline 
+                
+                Basado en la acción$^1$& & \\ \hline
+                
+                Incompleto& & \\\hline 
+                
+                Incierto, puede ser incorrecto & & \\ \hline 
+                
+                Cambia con rapidez& & \\ \hline 
+                
+                Difícil de verificar& & \\ \hline 
+                
+                Tácito, difícil de transferir& & \\ \hline 
+                
+                \textbf{Forma del conocimiento} & &\\ \hline
+                
+                Mental& & \\ \hline
+                
+                Papel& & \\ \hline 
+                
+                Electrónica& & \\ \hline
+                
+                Habilidades& & \\ \hline 
+                
+                Otros& & \\ \hline 
+                
+                \textbf{Disponibilidad del Conocimiento} &  &\\ \hline 
+                
+                Limitaciones en tiempo& & \\ \hline
+                
+                Limitaciones en espacio& & \\ \hline 
+                
+                Limitaciones de acceso& & \\ \hline Limitaciones de calidad& & 
+                
+                \\ \hline Limitaciones de forma& & \\ \hline
+                
+            \end{tabularx}
+              \label{tab.TM2}
+        \end{table}
+
+
+        \begin{table}[H]
+            \scriptsize
+            \begin{tabularx}{\textwidth}{|p{5cm}|>{\PBS\raggedright}p{0.8cm}|X|} \hline
+                \textbf{Modelo de Tareas} & \multicolumn{2}{l|}{\textbf{Formulario TM-2: Elemento de Co\-no\-ci\-mien\-to}} \\ \hline\hline
+                
+                \textsc{Nombre} &  \multicolumn{2}{l|}{criterios tecnicos por cinturon}\\ \hline
+                
+                \textsc{Poseído por} &  \multicolumn{2}{X|}{Agente \emph{(Referencia a OM-4)}}\\ \hline
+                
+                \textsc{Usado en} &  \multicolumn{2}{l|}{Nombre de la tarea e identificador \emph{(Referencia a OM-3)}}\\ \hline
+                
+                \textsc{Dominio} &  \multicolumn{2}{p{7.5cm}|}{Dominio más amplio en el que se encuentra el conocimiento (campo de la especialidad,
+                disciplina, rama de la ciencia o ingeniería, etc.).}\\ \hline
+                
+                \textbf{Naturaleza del conocimiento} & \emph{(Sí/No)} &
+                \textbf{¿Supone un cuello de botella?¿Debe ser mejorado?}\\ \hline 
+                
+                Formal, riguroso & & \\ \hline 
+                
+                Empírico, cuantitativo& & \\ \hline
+                
+                Heurístico, sentido común& & \\ \hline
+                
+                Altamente especializado, específico del dominio& & \\ \hline 
+                
+                Basado en la experiencia& & \\ \hline 
+                
+                Basado en la acción$^1$& & \\ \hline
+                
+                Incompleto& & \\\hline 
+                
+                Incierto, puede ser incorrecto & & \\ \hline 
+                
+                Cambia con rapidez& & \\ \hline 
+                
+                Difícil de verificar& & \\ \hline 
+                
+                Tácito, difícil de transferir& & \\ \hline 
+                
+                \textbf{Forma del conocimiento} & &\\ \hline
+                
+                Mental& & \\ \hline
+                
+                Papel& & \\ \hline 
+                
+                Electrónica& & \\ \hline
+                
+                Habilidades& & \\ \hline 
+                
+                Otros& & \\ \hline 
+                
+                \textbf{Disponibilidad del Conocimiento} &  &\\ \hline 
+                
+                Limitaciones en tiempo& & \\ \hline
+                
+                Limitaciones en espacio& & \\ \hline 
+                
+                Limitaciones de acceso& & \\ \hline Limitaciones de calidad& & 
+                
+                \\ \hline Limitaciones de forma& & \\ \hline
+                
+            \end{tabularx}
+              \label{tab.TM2}
+        \end{table}
+
+
+        \begin{table}[H]
+            \scriptsize
+            \begin{tabularx}{\textwidth}{|p{5cm}|>{\PBS\raggedright}p{0.8cm}|X|} \hline
+                \textbf{Modelo de Tareas} & \multicolumn{2}{l|}{\textbf{Formulario TM-2: Elemento de Co\-no\-ci\-mien\-to}} \\ \hline\hline
+                
+                \textsc{Nombre} &  \multicolumn{2}{l|}{Reglamento federativo}\\ \hline
+                
+                \textsc{Poseído por} &  \multicolumn{2}{X|}{Agente \emph{(Referencia a OM-4)}}\\ \hline
+                
+                \textsc{Usado en} &  \multicolumn{2}{l|}{Nombre de la tarea e identificador \emph{(Referencia a OM-3)}}\\ \hline
+                
+                \textsc{Dominio} &  \multicolumn{2}{p{7.5cm}|}{Dominio más amplio en el que se encuentra el conocimiento (campo de la especialidad,
+                disciplina, rama de la ciencia o ingeniería, etc.).}\\ \hline
+                
+                \textbf{Naturaleza del conocimiento} & \emph{(Sí/No)} &
+                \textbf{¿Supone un cuello de botella?¿Debe ser mejorado?}\\ \hline 
+                
+                Formal, riguroso & & \\ \hline 
+                
+                Empírico, cuantitativo& & \\ \hline
+                
+                Heurístico, sentido común& & \\ \hline
+                
+                Altamente especializado, específico del dominio& & \\ \hline 
+                
+                Basado en la experiencia& & \\ \hline 
+                
+                Basado en la acción$^1$& & \\ \hline
+                
+                Incompleto& & \\\hline 
+                
+                Incierto, puede ser incorrecto & & \\ \hline 
+                
+                Cambia con rapidez& & \\ \hline 
+                
+                Difícil de verificar& & \\ \hline 
+                
+                Tácito, difícil de transferir& & \\ \hline 
+                
+                \textbf{Forma del conocimiento} & &\\ \hline
+                
+                Mental& & \\ \hline
+                
+                Papel& & \\ \hline 
+                
+                Electrónica& & \\ \hline
+                
+                Habilidades& & \\ \hline 
+                
+                Otros& & \\ \hline 
+                
+                \textbf{Disponibilidad del Conocimiento} &  &\\ \hline 
+                
+                Limitaciones en tiempo& & \\ \hline
+                
+                Limitaciones en espacio& & \\ \hline 
+                
+                Limitaciones de acceso& & \\ \hline Limitaciones de calidad& & 
+                
+                \\ \hline Limitaciones de forma& & \\ \hline
+                
+            \end{tabularx}
+              \label{tab.TM2}
+        \end{table}
+
+
+
+        
+
+        
         
         {\scriptsize \noindent $^1$ Se refiere a conocimiento que se
         adquiere con la repetición de actividades físicas tales como
