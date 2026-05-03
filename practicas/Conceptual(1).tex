@@ -158,22 +158,324 @@ de diseño del modelo (explicadas en el capítulo 7 del libro de Shreiber).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fase de Identificación}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Para este SBC nos centraremos en la tarea 3, Planificación.
 
-Tarea 3 - Planificación 
+        \begin{table}[H]
+            \scriptsize
+            \begin{tabularx}{\textwidth}{|l|X|} \hline       
+                \textbf{Modelo de Tareas} & \textbf{Formulario TM-1: Análisis de Tareas} \\ \hline\hline
+                
+                \textsc{Tarea} & T3 – Planificación del entrenamiento (Ref. OM-3) \\ \hline
+                
+                \textsc{Organización}  & Proceso central del dojo bajo responsabilidad técnica del Sensei. \\ \hline
+                
+                \textsc{Objetivo y valor} & Diseñar sesiones estructuradas que permitan alcanzar los objetivos definidos. Aporta organización y eficiencia. \\ \hline
+                
+                \textsc{Dependencia y Flujos} 
+                & \textit{1. Tareas precedentes:} T2 – Definición de objetivos.\\
+                & \textit{2. Tareas que le siguen:} T4 – Seguimiento del progreso. \\ \hline
+                
+                \textsc{Objetos manipulados} 
+                & 1. Entrada: objetivos definidos.\\
+                & 2. Salida: plan de entrenamiento estructurado.\\
+                & 3. Internos: heurísticas y principios de planificación (OM-4). \\ \hline
+                
+                \textsc{Tiempo y control} 
+                & 1. Frecuencia: periódica (mensual o por ciclo).\\
+                & 2. Control: determina ejecución de sesiones.\\
+                & 3. Restricciones: equilibrio entre carga y recuperación. \\ \hline
+                
+                \textsc{Agentes} & Sensei. \\ \hline
+                
+                \textsc{Conocimiento y Capacidad} & Uso intensivo de heurísticas y principios deportivos (OM-4). Tarea altamente intensiva en conocimiento. \\ \hline
+                
+                \textsc{Recursos} & Tiempo del Sensei, material del dojo. \\ \hline
+                
+                \textsc{Calidad y eficiencia} & Coherencia del plan y progresión técnica observada. \\ \hline
+            \end{tabularx}
+            \label{tab.TM1-T3}
+          \end{table}
+          \begin{table}[H]
+            \scriptsize
+            \begin{tabularx}{\textwidth}{|p{5cm}|>{\PBS\raggedright}p{0.8cm}|X|} \hline
+                \textbf{Modelo de Tareas} & \multicolumn{2}{l|}{\textbf{Formulario TM-2: Elemento de Co\-no\-ci\-mien\-to}} \\ \hline\hline
 
+                \textsc{Nombre} &  \multicolumn{2}{l|}{Principios de planificación}\\ \hline
+
+                \textsc{Poseído por} &  \multicolumn{2}{X|}{Sensei}\\ \hline
+
+                \textsc{Usado en} &  \multicolumn{2}{l|}{Tarea 3 – Planificación del entrenamiento}\\ \hline
+
+                \textsc{Dominio} &  \multicolumn{2}{p{7.5cm}|}{\textbf{Rama:} Gestión y planificación del entrenamiento deportivo}\\ \hline
+
+                \textbf{Naturaleza del conocimiento} & \emph{(Sí/No)} &
+                \textbf{¿Supone un cuello de botella?¿Debe ser mejorado?}\\ \hline 
+
+                Formal, riguroso & No & Si, muchas planificaciones se hacen de forma intuitiva sin seguir un procedimiento estructurado \\ \hline 
+
+                Empírico, cuantitativo& No & No\\ \hline
+
+                Heurístico, sentido común& Si & No\\ \hline
+
+                Altamente especializado, específico del dominio& Si & No\\ \hline 
+
+                Basado en la experiencia& Si & No\\ \hline 
+
+                Basado en la acción$^1$& Si & No\\ \hline
+
+                Incompleto& Si & No\\\hline 
+
+                Incierto, puede ser incorrecto & Si & Si, pueden cometerse errores al olvidar factores de planificación \\ \hline 
+
+                Cambia con rapidez& No  & No\\ \hline 
+
+                Difícil de verificar& Si & Si, no siempre es sencillo evaluar si una planificación es óptima \\ \hline 
+
+                Tácito, difícil de transferir& Si & Si, depende mucho de la experiencia del instructor \\ \hline 
+
+                \textbf{Forma del conocimiento} & &\\ \hline
+
+                Mental& Si & Si, gran parte del conocimiento se mantiene en la experiencia del Sensei \\ \hline
+
+                Papel& Si & Si, realizarlo manualmente puede ser laborioso \\ \hline 
+
+                Electrónica& No  & Si, podría formalizarse mediante el sistema experto \\ \hline
+
+                Habilidades&Si  & No\\ \hline 
+
+                Otros& No & No\\ \hline 
+
+                \textbf{Disponibilidad del Conocimiento} &  &\\ \hline 
+
+                Limitaciones en tiempo& Si  & Si, al planificar rápidamente pueden omitirse detalles \\ \hline
+
+                Limitaciones en espacio& No & No \\ \hline 
+
+                Limitaciones de acceso& Si & No \\ \hline 
+
+                Limitaciones de calidad& Si & No \\ \hline 
+
+                Limitaciones de forma& Si & Si, el conocimiento no está formalizado en reglas claras \\ \hline
+
+            \end{tabularx}
+            \label{tab.TM2}
+        \end{table}
+        \begin{table}[H]
+            \scriptsize
+            \begin{tabularx}{\textwidth}{|p{5cm}|>{\PBS\raggedright}p{0.8cm}|X|} \hline
+                \textbf{Modelo de Tareas} & \multicolumn{2}{l|}{\textbf{Formulario TM-2: Elemento de Co\-no\-ci\-mien\-to}} \\ \hline\hline
+
+                \textsc{Nombre} &  \multicolumn{2}{l|}{Reglas de carga-descanso}\\ \hline
+
+                \textsc{Poseído por} &  \multicolumn{2}{X|}{Sensei}\\ \hline
+
+                \textsc{Usado en} &  \multicolumn{2}{l|}{Tarea 3 – Planificación del entrenamiento}\\ \hline
+
+                \textsc{Dominio} &  \multicolumn{2}{p{7.5cm}|}{\textbf{Rama:} Ciencias del deporte / preparación física}\\ \hline
+
+                \textbf{Naturaleza del conocimiento} & \emph{(Sí/No)} &
+                \textbf{¿Supone un cuello de botella?¿Debe ser mejorado?}\\ \hline 
+
+                Formal, riguroso & No & Si, las reglas se aplican de forma aproximada sin un procedimiento formal claro \\ \hline 
+
+                Empírico, cuantitativo& Si & No\\ \hline
+
+                Heurístico, sentido común& Si & No\\ \hline
+
+                Altamente especializado, específico del dominio& Si & No\\ \hline 
+
+                Basado en la experiencia& Si & No\\ \hline 
+
+                Basado en la acción$^1$& Si & No\\ \hline
+
+                Incompleto& Si & Si, pueden faltar datos sobre recuperación o fatiga del alumno\\\hline 
+
+                Incierto, puede ser incorrecto & Si & Si, una mala estimación puede provocar sobreentrenamiento\\ \hline 
+
+                Cambia con rapidez& No & No\\ \hline 
+
+                Difícil de verificar& Si & No\\ \hline 
+
+                Tácito, difícil de transferir& Si & Si, depende mucho de la experiencia del Sensei \\ \hline 
+
+                \textbf{Forma del conocimiento} & &\\ \hline
+
+                Mental& Si & Si, gran parte del conocimiento se aplica de memoria\\ \hline
+
+                Papel& No & No\\ \hline 
+
+                Electrónica& No  & Si, podría registrarse para facilitar la planificación\\ \hline
+
+                Habilidades&Si  & No\\ \hline 
+
+                Otros& No & No\\ \hline 
+
+                \textbf{Disponibilidad del Conocimiento} &  &\\ \hline 
+
+                Limitaciones en tiempo& Si  & Si, durante la planificación rápida puede omitirse algún ajuste\\ \hline
+
+                Limitaciones en espacio& No & No \\ \hline 
+
+                Limitaciones de acceso& Si & Si, depende del conocimiento del instructor \\ \hline 
+
+                Limitaciones de calidad& Si & No \\ \hline 
+
+                Limitaciones de forma& Si & Si, no está formalizado en reglas claras \\ \hline
+            \end{tabularx}
+            \label{tab.TM2}
+        \end{table}
+
+
+        \begin{table}[H]
+            \scriptsize
+            \begin{tabularx}{\textwidth}{|p{5cm}|>{\PBS\raggedright}p{0.8cm}|X|} \hline
+                \textbf{Modelo de Tareas} & \multicolumn{2}{l|}{\textbf{Formulario TM-2: Elemento de Co\-no\-ci\-mien\-to}} \\ \hline\hline
+
+                \textsc{Nombre} &  \multicolumn{2}{l|}{Criterios técnicos por cinturón}\\ \hline
+
+                \textsc{Poseído por} &  \multicolumn{2}{X|}{Sensei}\\ \hline
+
+                \textsc{Usado en} &  \multicolumn{2}{l|}{Tarea 1 – Evaluación inicial, Tarea 5 – Evaluación de resultados}\\ \hline
+
+                \textsc{Dominio} &  \multicolumn{2}{p{7.5cm}|}{\textbf{Rama:} Técnica y pedagogía del karate}\\ \hline
+
+                \textbf{Naturaleza del conocimiento} & \emph{(Sí/No)} &
+                \textbf{¿Supone un cuello de botella?¿Debe ser mejorado?}\\ \hline 
+
+                Formal, riguroso & Si & No \\ \hline 
+
+                Empírico, cuantitativo& No & No\\ \hline
+
+                Heurístico, sentido común& Si & No\\ \hline
+
+                Altamente especializado, específico del dominio& Si & No\\ \hline 
+
+                Basado en la experiencia& Si & No\\ \hline 
+
+                Basado en la acción$^1$& Si & No\\ \hline
+
+                Incompleto& No & No\\\hline 
+
+                Incierto, puede ser incorrecto & Si & Si, la evaluación técnica puede ser subjetiva\\ \hline 
+
+                Cambia con rapidez& No & No\\ \hline 
+
+                Difícil de verificar& Si & Si, la valoración puede variar entre instructores\\ \hline 
+
+                Tácito, difícil de transferir& Si & No \\ \hline 
+
+                \textbf{Forma del conocimiento} & &\\ \hline
+
+                Mental& Si & Si, el Sensei suele aplicar estos criterios de memoria\\ \hline
+
+                Papel& Si & No\\ \hline 
+
+                Electrónica& No  & No\\ \hline
+
+                Habilidades&Si  & No\\ \hline 
+
+                Otros& No & No\\ \hline 
+
+                \textbf{Disponibilidad del Conocimiento} &  &\\ \hline 
+
+                Limitaciones en tiempo& No  & No\\ \hline
+
+                Limitaciones en espacio& No & No \\ \hline 
+
+                Limitaciones de acceso& Si & No \\ \hline 
+
+                Limitaciones de calidad& Si & Si, depende de la experiencia del instructor \\ \hline 
+
+                Limitaciones de forma& Si & No \\ \hline
+
+            \end{tabularx}
+            \label{tab.TM2}
+        \end{table}
+
+
+        \begin{table}[H]
+            \scriptsize
+            \begin{tabularx}{\textwidth}{|p{5cm}|>{\PBS\raggedright}p{0.8cm}|X|} \hline
+                \textbf{Modelo de Tareas} & \multicolumn{2}{l|}{\textbf{Formulario TM-2: Elemento de Co\-no\-ci\-mien\-to}} \\ \hline\hline
+
+                \textsc{Nombre} &  \multicolumn{2}{l|}{Reglamento federativo}\\ \hline
+
+                \textsc{Poseído por} &  \multicolumn{2}{X|}{Sensei}\\ \hline
+
+                \textsc{Usado en} &  \multicolumn{2}{l|}{Tarea 2 – Definición de objetivos, Tarea 5 – Evaluación de resultados}\\ \hline
+
+                \textsc{Dominio} &  \multicolumn{2}{p{7.5cm}|}{\textbf{Rama:} Normativa deportiva del karate}\\ \hline
+
+                \textbf{Naturaleza del conocimiento} & \emph{(Sí/No)} &
+                \textbf{¿Supone un cuello de botella?¿Debe ser mejorado?}\\ \hline 
+
+                Formal, riguroso & Si & No \\ \hline 
+
+                Empírico, cuantitativo& No & No\\ \hline
+
+                Heurístico, sentido común& No & No\\ \hline
+
+                Altamente especializado, específico del dominio& Si & No\\ \hline 
+
+                Basado en la experiencia& No & No\\ \hline 
+
+                Basado en la acción$^1$& No & No\\ \hline
+
+                Incompleto& No & No\\\hline 
+
+                Incierto, puede ser incorrecto & No & No\\ \hline 
+
+                Cambia con rapidez& Si & Si, los reglamentos pueden actualizarse periódicamente\\ \hline 
+
+                Difícil de verificar& No & No\\ \hline 
+
+                Tácito, difícil de transferir& No & No \\ \hline 
+
+                \textbf{Forma del conocimiento} & &\\ \hline
+
+                Mental& Si & No\\ \hline
+
+                Papel& Si & No\\ \hline 
+
+                Electrónica& Si  & No\\ \hline
+
+                Habilidades&No  & No\\ \hline 
+
+                Otros& No & No\\ \hline 
+
+                \textbf{Disponibilidad del Conocimiento} &  &\\ \hline 
+
+                Limitaciones en tiempo& No  & No\\ \hline
+
+                Limitaciones en espacio& No & No \\ \hline 
+
+                Limitaciones de acceso& No & No \\ \hline 
+
+                Limitaciones de calidad& No & No \\ \hline 
+
+                Limitaciones de forma& No & No \\ \hline
+
+            \end{tabularx}
+            \label{tab.TM2}
+        \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Glosario}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{itemize}
-    \item \textbf{Kata:} Emulación de una pelea contra un enemigo imaginario.
+\item \textbf{Kata:} Emulación de una pelea contra un enemigo imaginario.
+  \item \textbf{Estilo:} Diferente escuela o forma de pensamiento sobre el karate a partir de la cual se desarrollan diferentes katas.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Escenarios}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+\item Se pide una lista de ejercicios de karate para un cinturón verde de 12 años y en buen estado de salud, preferiblemente de naturaleza competitiva. El resultado es un lista de ejercicios de karate para un cinturón verde de 12 años y en buen estado de salud, preferiblemente de naturaleza competitiva.
+  \item Se pide una lista de ejercicios de karate para un cinturón blanco de 13 años y enfermo de resfriad preferiblemente de naturaleza no competitiva. Plan relajado. El resultado es una lista de ejercicios de karate para un cinturón blanco de 13 años y enfermo de resfriado, preferiblemente de naturaleza no competitiva.
 
-\textbf{Escenario:} Aparece una competición de karate en donde varios alumnos del sensei quieren participar, y el sensei busca una planificación para que el alumno llegue en las mejores condiciones a esa competición, por lo que es sensei usa el sistema inteligente para segun las características de cada alumno generar una planificación adecuada al contexto del alumno en un tiempo que le permite gestionar la planificación d etodos los slumnos.
+\end{itemize}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Elementos reutilizables}
@@ -210,8 +512,7 @@ Schreiber et col.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Metodología empleada}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Para nuestro Sistema experto vamos a usar \emph{Middle-in} ya que nos permite 1ro centrarnos en las tareas
-que en nuestro caso ya estan bien definidas y luego subir a un contexto organizacional 
+Para nuestro SBC vamos a usar \emph{Middle-out} ya que la plantilla provista ha sido lo suficientemente detallada como para desarrollar nuestro SBC a partir de ella  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Plantilla anotada}
