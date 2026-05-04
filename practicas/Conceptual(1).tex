@@ -5,8 +5,9 @@
 \usepackage{epsfig}         % Graficos Postscript
 \usepackage{tabularx}
 \usepackage{sectsty}
+\usepackage{graphicx}
 \usepackage{float}
-
+\graphicspath{ {./images/} }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -137,23 +138,14 @@ prácticas: xxx}{Modelado Conceptual en CommonKADS.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% BORRAR
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Esta entrega se corresponde con los modelos de conocimiento y
-comunicación.  No debéis olvidar que la práctica supone el 50\% de la nota de la asignatura
-y que, sólo a nivel general, el material utilizado en las prácticas entrará en
-el examen teórico. Por esta razón esta segunda entrega supone un
-``exame'' de los modelos de conocimiento y comunicación en lo que se
-refiere a los capítulos 5, 6, 7 y 9 del libro ``Knowledge engineering and
-management. The CommonKADS methodology"(Schreiber et col.)''. En las
-explicaciones que siguen me referiré siempre al libro de Schreiber et col.
-(aunque podéis encontrar el mismo material en el libro en español).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Modelo de Conocimiento.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Se deberá entregar la documentación correspondiente a las tres fases
-de diseño del modelo (explicadas en el capítulo 7 del libro de Shreiber).
+%%Se deberá entregar la documentación correspondiente a las tres fases
+%%de diseño del modelo (explicadas en el capítulo 7 del libro de Shreiber).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fase de Identificación}
@@ -492,61 +484,113 @@ Para este SBC nos centraremos en la tarea 3, Planificación.
 \subsection{Fase de Especificación}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Los apartados de esta sección  se deberán de acompañar de BREVES comentarios indicando
-cuestiones sobre la adaptabilidad de la plantilla al problema,
-explicación de cambios que se hayan realizado sobre la misma, cómo se ha
-aplicado la metodología de construcción del modelo de conocimiento, etc.
-
-EN DEFINITIVA, LOS COMENTARIOS DEBERÁN DEMOSTRAR QUE HABÉIS
-ENTENDIDO LOS PASOS EN LA CONSTRUCCION DEL MODELO Y, POR
-SUPUESTO, EL MODELO FINAL PROPUESTO.
-
-Excepto para la tarea y su método, para la especificación de los demás
-componentes del modelo de conocimiento se utilizará la notación gráfica
-(frente a la textual de CML) siempre que sea posible. En el caso de los
-mapeos de inferencias podéis encontrar un ejemplo de notación gráfica en
-la página 200 del libro de Alonso et col. y en la página 107 en el libro de
-Schreiber et col.
+%Los apartados de esta sección  se deberán de acompañar de BREVES comentarios indicando
+%cuestiones sobre la adaptabilidad de la plantilla al problema,
+%explicación de cambios que se hayan realizado sobre la misma, cómo se ha
+%aplicado la metodología de construcción del modelo de conocimiento, etc.
+%
+%EN DEFINITIVA, LOS COMENTARIOS DEBERÁN DEMOSTRAR QUE HABÉIS
+%ENTENDIDO LOS PASOS EN LA CONSTRUCCION DEL MODELO Y, POR
+%SUPUESTO, EL MODELO FINAL PROPUESTO.
+%
+%Excepto para la tarea y su método, para la especificación de los demás
+%componentes del modelo de conocimiento se utilizará la notación gráfica
+%(frente a la textual de CML) siempre que sea posible. En el caso de los
+%mapeos de inferencias podéis encontrar un ejemplo de notación gráfica en
+%la página 200 del libro de Alonso et col. y en la página 107 en el libro de
+%Schreiber et col.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Metodología empleada}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Para nuestro SBC vamos a usar \emph{Middle-out} ya que la plantilla provista ha sido lo suficientemente detallada como para desarrollar nuestro SBC a partir de ella  
+Para nuestro SBC vamos a usar la metodología \emph{Middle-out} ya que la plantilla provista ha sido lo suficientemente detallada como para desarrollar nuestro SBC a partir de ella  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Plantilla anotada}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Gráfico con la plantilla notada. Todas las modificaciones propuestas sobre la
-plantilla original deberán justificarse en este punto.
+En nuestro caso, para la plantilla anotada hemos eliminado la inferencia \textbf{specify} ya que los elementos que componen nuestra salida no necesitan un diseño esqueletal alrededor del cual formarse
+\begin{figure}[H]
+  \includegraphics[width=\textwidth]{planotada}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Esquema inicial del dominio}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Boceto del que se parte que,
-posteriormente, se irá refinando al realizar el mapeo de las
-inferencias, etc.
-
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{esqinicial}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Estructura inferencial y Mapeo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{esinf}
+\caption{Esquema inferencial modificado}
+\end{figure}
 
-Gráfico de la estruatura inferencial (solo si difiere de la plantilla seleccionada).
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{select}
+\caption{Inferencia select}
+\end{figure}
 
-Mapeo de cada una de las inferencias y roles de la plantilla seleccionada.
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{verify}
+\caption{Inferencia verify}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{modify}
+\caption{Inferencia modify}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{operacionalizar}
+\caption{Inferencia operationalize}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{criticize}
+\caption{Inferencia criticize}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{propose}
+\caption{Inferencia propose}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Tarea}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Especificación de la tarea (entradas y salidas) y Método de la tarea
+\begin{verbatim}
+INPUT: requirements: "requirements for the design";
+OUTPUT: design: "the resulting design";
 
+operationalize(requirements -> hard-requirements + soft-requirements);
+
+WHILE NEW-SOLUTION propose(design + soft-requirements -> extension)
+ DO design := extension ADD design;
+    verify(design + hard-requirements -> truth-value + violation);
+
+    IF truth-value == false
+    THEN critique(violation + design -> action-list);
+
+         REPEAT
+            select(action-list -> action);
+            use case(design + action -> design);
+            verify(design + hard-requirements -> truth-value + violation);
+         UNTIL truth-value == true;
+         END REPEAT
+
+    END IF
+END WHILE
+\end{verbatim}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Esquema del dominio final}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{eidfinal}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fase De Refinamiento}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
