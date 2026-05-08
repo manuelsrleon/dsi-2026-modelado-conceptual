@@ -95,12 +95,11 @@
 \HRule \\[0.5cm]
 \begin{center}
 % Letra lineal y negrita
-\textsf{\textbf{\large UN SISTEMA BASADO EN CONOCIMIENTO PARA \ldots(tema de la práctica)\\[0.75cm] MODELADO CONCEPTUAL EN COMMONKADS \\[0.5cm]}}
+\textsf{\textbf{\large UN SISTEMA BASADO EN CONOCIMIENTO PARA \ldots(LA PLANIFICACIÓN Y ENTRENAMIENTO DEL KARATE)\\[0.75cm] MODELADO CONCEPTUAL EN COMMONKADS \\[0.5cm]}}
 \HRule \vspace*{3cm}
 
-\textsf{\textbf{\normalsize [Nombres de los componentes del
-grupo]\\[5cm]
-Horario de prácticas:\\
+\textsf{\textbf{\normalsize Daniel Gago Martínez, Manuel Santamariña Ruiz de León, Daniel Deza Prieto, Hugo García\\[5cm]
+Horario de prácticas: 3.1\\
 Login de entrega: \\[2.5cm]
 Desarrollo de Sistemas Inteligentes\\
 Universidade da Coruña \\ Curso
@@ -467,17 +466,10 @@ Para este SBC nos centraremos en la tarea 3, Planificación.
   \item Se pide una lista de ejercicios de karate para un cinturón blanco de 13 años y enfermo de resfriad preferiblemente de naturaleza no competitiva. Plan relajado. El resultado es una lista de ejercicios de karate para un cinturón blanco de 13 años y enfermo de resfriado, preferiblemente de naturaleza no competitiva.
 
 \end{itemize}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Elementos reutilizables}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{itemize}
   No tenemos ningún elemento reutilizable de un sistema anterior.
-\end{itemize}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fase de Especificación}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -502,7 +494,7 @@ Para este SBC nos centraremos en la tarea 3, Planificación.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Metodología empleada}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Para nuestro SBC vamos a usar la metodología \emph{Middle-out} ya que la plantilla provista ha sido lo suficientemente detallada como para desarrollar nuestro SBC a partir de ella  
+Para nuestro SBC vamos a usar la metodología \emph{Middle-out} ya que la plantilla provista ha sido lo suficientemente detallada como para desarrollar nuestro SBC a partir de ella. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Plantilla anotada}
@@ -619,6 +611,56 @@ END TASK-METHOD propose-and-revise;
 \subsubsection{Validación}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\textbf{Escenario 1.} El sensei le pide al sistema una "lista de ejercicios
+para un cinturón verde de 17 años, sano, plan competitivo e intenso".
+
+OPERATIONALIZE separa los requisitos: como hard quedan
+\texttt{caracteristicas.cinturon = "verde"} y
+\texttt{caracteristicas.salud = "buena"}, y como soft
+\texttt{caracteristicas.edad = 17},
+\texttt{caracteristicas.competitividad = "ofensiva"} e
+\texttt{caracteristicas.intensidad = "alta"}. SPECIFY construye un
+esqueleto del plan con los bloques habituales (calentamiento, kihon, kata,
+kumite y vuelta a la calma) y PROPOSE lo rellena con ejercicios y una kata
+de \texttt{kata.estilo = "shotokan"}, \texttt{kata.dificultad = "media"} y
+\texttt{kata.dificultad\_fisica = "media"}, acordes al cinturón. VERIFY
+revisa las restricciones del dominio (kata-cinturón y dificultad
+física-salud) y no encuentra alarmas, así que CRITIQUE devuelve la lista
+de acciones vacía y SELECT/MODIFY no llegan a ejecutarse. El plan sale
+directamente al usuario.
+
+\textbf{Escenario 2.} El sensei pide ahora una "lista de ejercicios para
+un cinturón blanco de 13 años, con resfriado, plan no competitivo y
+relajado".
+
+OPERATIONALIZE deja como hard \texttt{caracteristicas.cinturon = "blanco"}
+y \texttt{caracteristicas.salud = "enfermo:resfriado"}, y como soft la
+edad, \texttt{caracteristicas.competitividad = "defensiva"} e
+\texttt{caracteristicas.intensidad = "baja"}. SPECIFY ya quita el bloque
+de kumite por la competitividad pedida. La primera pasada de PROPOSE, sin
+embargo, no filtra del todo: mete una kata con \texttt{kata.estilo =
+"shotokan"}, \texttt{kata.dificultad = "alta"} y
+\texttt{kata.dificultad\_fisica = "alta"}, por encima del nivel del
+alumno y con carga física incompatible con su salud.
+
+VERIFY detecta entonces dos alarmas,
+\texttt{alarma.mensaje = "La kata no corresponde a ese cinturón"} con
+\texttt{alarma.dificultad = "alta"}, y \texttt{alarma.mensaje = "Carga
+física no apta para el alumno"} con \texttt{alarma.dificultad\_fisica =
+"alta"}. CRITIQUE las traduce en \{\texttt{sustituir-kata} (prioridad 1),
+\texttt{reducir-dificultad-fisica} (prioridad 2)\}. SELECT coge la de
+mayor prioridad y MODIFY cambia la kata por una de
+\texttt{kata.dificultad = "baja"}. En la siguiente iteración VERIFY sigue
+quejándose por la dificultad física, se aplica la segunda acción y en
+una tercera pasada ya no hay alarmas, con lo que el plan se entrega.
+
+Es este segundo caso el que justifica el bucle de refinamiento de la
+plantilla: verify, critique, select y modify son los que dejan el plan
+utilizable cuando la primera propuesta no lo está.
+
+
+
+
 %Validación del modelo sobre los escenarios propuestos en la fase
 %de identificación.
 
@@ -626,6 +668,69 @@ END TASK-METHOD propose-and-revise;
 \subsubsection{Bases de conocimientos}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Restricción kata-cinturón (la usa VERIFY):
+\begin{verbatim}
+RULE r-kata-cinturon-01;
+  ANTECEDENT:
+    kata.estilo = "shotokan" AND
+    kata.dificultad = "alta" AND
+    caracteristicas.cinturon = "blanco";
+  CONSEQUENT:
+    alarma.mensaje = "La kata no corresponde a ese cinturón" AND
+    alarma.dificultad = "alta";
+\end{verbatim}
+
+Restricción dificultad física-salud (la usa VERIFY):
+\begin{verbatim}
+RULE r-kata-dificultad-fisica-01;
+  ANTECEDENT:
+    kata.dificultad_fisica = "alta" AND
+    caracteristicas.salud = "enfermo:resfriado";
+  CONSEQUENT:
+    alarma.mensaje = "Carga fisica no apta para el alumno" AND
+    alarma.dificultad_fisica = "alta";
+\end{verbatim}
+Reglas de PROPOSE
+\begin{verbatim}
+RULE r-propose-kata-competitivo;
+  ANTECEDENT:
+    caracteristicas.cinturon = "verde" AND
+    caracteristicas.competitividad = "ofensiva";
+  CONSEQUENT:
+    kata.estilo = "shotokan" AND
+    kata.dificultad = "media" AND
+    kata.dificultad_fisica = "media";
+\end{verbatim}
+
+\begin{verbatim}
+RULE r-propose-intensidad-alta;
+  ANTECEDENT:
+    caracteristicas.intensidad = "alta" AND
+    caracteristicas.salud = "buena";
+  CONSEQUENT:
+    bloque.kihon = "tecnicas combinadas avanzadas" AND
+    bloque.kumite = "combate libre (jiyu kumite)";
+\end{verbatim}
+Reglas de SELECT
+\begin{verbatim}
+RULE r-select-prioridad-tecnica;
+  ANTECEDENT:
+    acciones_disponibles = {sustituir-kata, reducir-dificultad-fisica} AND
+    alarma.dificultad = "alta";
+  CONSEQUENT:
+    accion_elegida = sustituir-kata AND
+    prioridad = 1;
+\end{verbatim}
+
+\begin{verbatim}
+RULE r-select-prioridad-salud;
+  ANTECEDENT:
+    acciones_disponibles = {reducir-dificultad-fisica} AND
+    caracteristicas.salud = "enfermo:resfriado";
+  CONSEQUENT:
+    accion_elegida = reducir-dificultad-fisica AND
+    prioridad = 2;
+\end{verbatim}
 %Para estas prácticas, bastará con que las bases
 %de conocimientos contengan TRES o CUATRO instancias de cada tipo de
 %regla encontrado.
@@ -655,6 +760,9 @@ END TASK-METHOD propose-and-revise;
 % \item Información de control de las transacciones en forma de
 %seudocódigo o de diagrama de transición
 %\end{itemize}
+Para la tarea que hemos desarrollado las comunicaciones se producen entre el diseñador y el SBC y el SBC y la base de datos.
+El diseñador especificará los requisitos al sistema y seleccionará acciones en el caso de que la solución parcial no cumpla los
+requisitos. Por otro lado, al final del procesamiento el SBC se comunicará con la base de datos para guardar la solución.
 
 \begin{figure}[H]
   \includegraphics[width=\textwidth]{diagramadial}
@@ -817,7 +925,7 @@ ESPECIFICACIÓN DE INTERCAMBIO DE INFORMACIÓN & Tipo REPORT (Predefinido en el 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Especificación de las transacciones}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+Ya que hemos empleado los tipos de transacciones ya predefinidos en el libro de Schreiber no hemos definido ninguna nueva transacción.
 %%Modelo CM-2 para las transacciones identificadas. 
 %%
 %%\textbf{NOTA IMPORTANTE:} Normalmente los modelos de comunicación de las prácticas son sencillos, por lo que este formulario puede no ser necesario. Se realizará sólo
