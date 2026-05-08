@@ -474,9 +474,7 @@ Para este SBC nos centraremos en la tarea 3, Planificación.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{itemize}
-    \item \textbf{Base de datos con todos los katas existentes en karate}
-    \item \textbf{Base de datos con todas las tecnicas basicas del karate}
-    \item \textbf{base de datos con información sobre gestion de tiempos de descansos y entrenamiento}
+  No tenemos ningún elemento reutilizable de un sistema anterior.
 \end{itemize}
 
 
@@ -509,7 +507,7 @@ Para nuestro SBC vamos a usar la metodología \emph{Middle-out} ya que la planti
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Plantilla anotada}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-En nuestro caso, para la plantilla anotada hemos eliminado la inferencia \textbf{specify} ya que los elementos que componen nuestra salida no necesitan un diseño esqueletal alrededor del cual formarse
+En nuestro caso, para la plantilla anotada hemos eliminado la inferencia \textbf{specify} ya que los elementos que componen nuestra salida no necesitan un diseño esqueletal alrededor del cual formarse. Dispondremos de una lista de katas vacía, pero no es necesario realizar ningun diseño preliminar alrededor de esta.
 \begin{figure}[H]
   \includegraphics[width=\textwidth]{planotada}
 \end{figure}
@@ -558,32 +556,53 @@ En nuestro caso, para la plantilla anotada hemos eliminado la inferencia \textbf
 \caption{Inferencia propose}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+En la figura 5 podemos observar la inferencia operationalize, la cual, a partir de la entrada del usuario (en nuestro caso el Sensei)
+convertirá los requisitos del usuario en restricciones (requisitos hard) y preferencias (requisitos soft).
+En la figura 7 se presenta el rol estático propose, que, a través de reglas de proposición, las preferencias del sensei y el diseño ya presente,
+propondrá un elemento a ser añadido a la lista de katas, la cual será verificada en la inferencia 3. La inferencia 3 emitirá 2 valores de salida dependiendo de la lista de katas actual: un valor bool dependiendo del cumplimiento de las restricciones, y emitirá una violación de no cumplir los requisitos.
+
+Posterior a la verificación, la violación y la lista de katas extendida se introducirán en la inferencia criticize (Figura 6) y mediante conocimiento de crítica se dispondrá de una lista de acciones para devolver la lista de katas a un estado verificable. Utilizando el rol estático select (Figura 2) se seleccionará la acción mas apropiada, la cual se llevará a cabo en la inferencia modify (Figura 4). Una vez finalizado este proceso, se reintroducirá al proceso de verificación la lista de katas modificada.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsubsection{Tarea}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Especificación de la tarea (entradas y salidas) y Método de la tarea
+Especificación de la tarea (entradas y salidas) y Método de la tarea:
 \begin{verbatim}
-INPUT: requirements: "requirements for the design";
-OUTPUT: design: "the resulting design";
+TASK configuration-design; 
+    ROLES: 
+        INPUT: requirements: "requisitos del diseño"; 
+        OUTPUT: design: "diseño final resultante"; 
+END TASK configuration-design; 
 
-operationalize(requirements -> hard-requirements + soft-requirements);
-
-WHILE NEW-SOLUTION propose(design + soft-requirements -> extension)
- DO design := extension ADD design;
-    verify(design + hard-requirements -> truth-value + violation);
-
-    IF truth-value == false
-    THEN critique(violation + design -> action-list);
-
-         REPEAT
-            select(action-list -> action);
-            use case(design + action -> design);
-            verify(design + hard-requirements -> truth-value + violation);
-         UNTIL truth-value == true;
-         END REPEAT
-
-    END IF
-END WHILE
+TASK-METHOD propose-and-revise; 
+    REALIZES: configuration-design; 
+    DECOMPOSITION: 
+        INFERENCES: operationalize, propose, verify, criticize, select, modify; 
+    ROLES: 
+        INTERMEDIATE: 
+            soft-requirements: "requisitos a ser usados como preferencia"; hard-requirements: "requisitos que son restricciones graves"; 
+            extension: "una nueva instancia para el diseño"; 
+            violation: "restricciones incumplidas por el diseño actual"; 
+            truth-value: "booleano que indica el resultado de la verificación"; 
+            action-list: "lista ordenada de posibles acciones solución"; 
+            action: "una instancia de una acción de las posibles soluciones"; 
+    CONTROL-STRUCTURE: 
+        operationalize(requirements -> hard-requirements + soft-requirements); 
+        WHILE NEW-SOLUTION propose(design + soft-requirements -> extension) 
+        DO 
+            design := extension ADD design; 
+            verify(design + hard-requirements -> truth-value + violation); 
+            IF truth-value == false 
+            THEN criticize(violation + design -> action-list); 
+                REPEAT 
+                    select(action-list -> action); 
+                    modify(design + action -> design); 
+                    verify(design + hard-requirements -> truth-value + violation);
+                UNTIL truth-value == true; 
+                END REPEAT 
+            END IF 
+        END WHILE 
+END TASK-METHOD propose-and-revise;
 \end{verbatim}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Esquema del dominio final}
@@ -600,16 +619,16 @@ END WHILE
 \subsubsection{Validación}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Validación del modelo sobre los escenarios propuestos en la fase
-de identificación.
+%Validación del modelo sobre los escenarios propuestos en la fase
+%de identificación.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Bases de conocimientos}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Para estas prácticas, bastará con que las bases
-de conocimientos contengan TRES o CUATRO instancias de cada tipo de
-regla encontrado.
+%Para estas prácticas, bastará con que las bases
+%de conocimientos contengan TRES o CUATRO instancias de cada tipo de
+%regla encontrado.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -617,41 +636,193 @@ regla encontrado.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-El modelado conceptual no está completo sin el modelo de
-comunicación, que es necesario realizar antes de la implementación. El
-modelo se realizará siguiendo las pautas de la metodología CommonKADS
-resumidas en la tabla 9.8 y se comprobará su corrección con respecto a los
-otros modelos ya construidos siguiendo las guías que se proporcionan en el
-apartado 9.7.4 del libro. En el documento a entregar se incluirán
-comentarios BREVES que demuestren que se han tenido en cuenta estos
-aspectos.
+%El modelado conceptual no está completo sin el modelo de
+%comunicación, que es necesario realizar antes de la implementación. El
+%modelo se realizará siguiendo las pautas de la metodología CommonKADS
+%resumidas en la tabla 9.8 y se comprobará su corrección con respecto a los
+%otros modelos ya construidos siguiendo las guías que se proporcionan en el
+%apartado 9.7.4 del libro. En el documento a entregar se incluirán
+%comentarios BREVES que demuestren que se han tenido en cuenta estos
+%aspectos.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Plan de comunicación general}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Brevemente COMENTADO y que incluya:
-\begin{itemize}
- \item Diagrama de diálogo
- \item Información de control de las transacciones en forma de
-seudocódigo o de diagrama de transición
-\end{itemize}
+%Brevemente COMENTADO y que incluya:
+%\begin{itemize}
+% \item Diagrama de diálogo
+% \item Información de control de las transacciones en forma de
+%seudocódigo o de diagrama de transición
+%\end{itemize}
 
+\begin{figure}[H]
+  \includegraphics[width=\textwidth]{diagramadial}
+  \caption{Diagrama de diálogo}
+\end{figure}
+
+\begin{figure}[H]
+  \includegraphics[width=\textwidth]{diagramatrans}
+  \caption{Diagrama de transición}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Descripción de las Transacciones}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Modelo CM-1 que incluya las transacciones identificadas
 
+\begin{table}[H]
+\centering
+\label{tab:cm1}
+ 
+\begin{tabularx}{\textwidth}{|X|X|}
+\hline
+\textbf{Modelo de Comunicación} & \textbf{Hoja de Trabajo de Descripción de Transacción CM-1} \\
+\hline
+ 
+IDENTIFICADOR/NOMBRE DE TRANSACCIÓN & TR1: Introducir requisitos \\
+\hline
+ 
+OBJETO DE INFORMACIÓN & Lista de restricciones y preferencias (Especialización, competitividad, nivel...) deseados para el plan por el sensei.
+\\
+\hline
+ 
+  AGENTES INVOLUCRADOS & Agente emisor: Sensei \newline Agente receptor: SBC
+  \\ 
+\hline
+ 
+PLAN DE COMUNICACIÓN & 
+\\
+\hline
+ 
+RESTRICCIONES & Debe existir una lista de katas vacía.
+\\
+\hline
+ 
+ESPECIFICACIÓN DE INTERCAMBIO DE INFORMACIÓN & Tipo ORDER (Predefinido en el libro Schreiber)
+\\
+\hline
+ 
+\end{tabularx}
+ 
+\end{table}
+
+\begin{table}[H]
+\centering
+\label{tab:cm1}
+ 
+\begin{tabularx}{\textwidth}{|X|X|}
+\hline
+\textbf{Modelo de Comunicación} & \textbf{Hoja de Trabajo de Descripción de Transacción CM-1} \\
+\hline
+ 
+IDENTIFICADOR/NOMBRE DE TRANSACCIÓN & TR2: Seleccionar acción \\
+\hline
+ 
+OBJETO DE INFORMACIÓN & Lista de acciones aplicables a una lista de katas con katas mal introducidas (que incumplan preferencias o requisitos)
+\\
+\hline
+ 
+AGENTES INVOLUCRADOS & Agente emisor: SBC (Digo yo que si pero no estoy seguro -dza) \newline Agente Receptor: Diseñador
+  \\ 
+\hline
+ 
+PLAN DE COMUNICACIÓN & 
+\\
+\hline
+ 
+RESTRICCIONES & Se da cuando el SBC detecta elementos mal introducidos en la lista de katas
+\\
+\hline
+ 
+ESPECIFICACIÓN DE INTERCAMBIO DE INFORMACIÓN & Tipo ASK/REPLY (Predefinido en el libro Schreiber)
+\\
+\hline
+ 
+\end{tabularx}
+ 
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Hoja de Trabajo CM-1: Descripción de Transacción}
+\label{tab:cm1}
+ 
+\begin{tabularx}{\textwidth}{|X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Modelo de Comunicación} & \textbf{Hoja de Trabajo de Descripción de Transacción CM-1} \\
+\hline
+ 
+IDENTIFICADOR/NOMBRE DE TRANSACCIÓN & TR3.1: Mostrar solución \\
+\hline
+ 
+OBJETO DE INFORMACIÓN & Lista de katas con todos los elementos ya insertados correctamente
+\\
+\hline
+ 
+AGENTES INVOLUCRADOS & Agente emisor: SBC \newline Agente Receptor: Sensei
+  \\ 
+\hline
+ 
+PLAN DE COMUNICACIÓN & 
+\\
+\hline
+ 
+RESTRICCIONES & El SBC ha de disponer de una solución que cumpla con los requisitos. 
+\\
+\hline
+ 
+ESPECIFICACIÓN DE INTERCAMBIO DE INFORMACIÓN & Tipo REPORT (Predefinido en el libro Schreiber)
+\\
+\hline
+ 
+\end{tabularx}
+ 
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\label{tab:cm1}
+ 
+\begin{tabularx}{\textwidth}{|X|X|}
+\hline
+\textbf{Modelo de Comunicación} & \textbf{Hoja de Trabajo de Descripción de Transacción CM-1} \\
+\hline
+ 
+IDENTIFICADOR/NOMBRE DE TRANSACCIÓN & TR3.2: Guardar solución \\
+\hline
+ 
+OBJETO DE INFORMACIÓN & Lista de katas con todos los elementos ya insertados correctamente
+\\
+\hline
+ 
+  AGENTES INVOLUCRADOS & Agente emisor: SBC \newline Agente Receptor: Base de datos
+  \\ 
+\hline
+ 
+PLAN DE COMUNICACIÓN & 
+\\
+\hline
+ 
+RESTRICCIONES & El SBC ha de disponer de una solución que cumpla con los requisitos. 
+\\
+\hline
+ 
+ESPECIFICACIÓN DE INTERCAMBIO DE INFORMACIÓN & Tipo REPORT (Predefinido en el libro Schreiber)
+\\
+\hline
+ 
+\end{tabularx}
+ 
+\end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Especificación de las transacciones}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Modelo CM-2 para las transacciones identificadas. 
-
-\textbf{NOTA IMPORTANTE:} Normalmente los modelos de comunicación de las prácticas son sencillos, por lo que este formulario puede no ser necesario. Se realizará sólo
-para las transacciones complejas que no queden completamente
-especificadas con el modelo CM-1.
-
+%%Modelo CM-2 para las transacciones identificadas. 
+%%
+%%\textbf{NOTA IMPORTANTE:} Normalmente los modelos de comunicación de las prácticas son sencillos, por lo que este formulario puede no ser necesario. Se realizará sólo
+%%para las transacciones complejas que no queden completamente
+%%especificadas con el modelo CM-1.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %FINAL DEL LIBRO
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
